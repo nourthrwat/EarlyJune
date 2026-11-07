@@ -1,0 +1,16 @@
+{
+  "name": "earlyjune",
+  "private": true,
+  "description": "Early June website — Astro frontend + Sanity Studio (migrated from Webflow)",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "install:all": "npm --prefix web install && npm --prefix studio install",
+    "dev:web": "npm --prefix web run dev",
+    "dev:studio": "npm --prefix studio run dev",
+    "build:web": "npm --prefix web run build",
+    "build:studio": "npm --prefix studio run build",
+    "build": "npm run build:studio && npm run build:web"
+  }
+}

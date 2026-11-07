@@ -1,0 +1,140 @@
+---
+import Button from './ui/Button.astro'
+import {hrefFor} from '@/lib/links'
+import type {SiteSettings} from '@/lib/types'
+
+interface Props {
+  settings: SiteSettings
+}
+
+const {settings} = Astro.props
+const nav = settings?.mainNav ?? []
+const current = Astro.url.pathname
+---
+
+<header class="site-header padding-global theme-light">
+  <div class="container-large site-header__inner">
+    <a href="/" class="site-header__logo" aria-label={`${settings?.siteName ?? 'Early June'} home`}>
+      {settings?.siteName ?? 'Early June'}
+    </a>
+
+    <nav aria-label="Main">
+      <details class="site-nav">
+        <summary class="site-nav__toggle">
+          <span class="visually-hidden">Menu</span>
+          <span class="site-nav__bars" aria-hidden="true"></span>
+        </summary>
+        <ul class="site-nav__list" role="list">
+          {
+            nav.map((link) => {
+              const href = hrefFor(link)
+              return (
+                <li>
+                  <a href={href} aria-current={href === current ? 'page' : undefined}>
+                    {link.label}
+                  </a>
+                </li>
+              )
+            })
+          }
+          {settings?.navCta && <li class="site-nav__cta"><Button link={settings.navCta} /></li>}
+        </ul>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid var(--border);
+  }
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 4.5rem;
+  }
+  .site-header__logo {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--fs-large);
+    text-decoration: none;
+  }
+  .site-nav__toggle {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    cursor: pointer;
+    list-style: none;
+  }
+  .site-nav__toggle::-webkit-details-marker {
+    display: none;
+  }
+  .site-nav__bars,
+  .site-nav__bars::before,
+  .site-nav__bars::after {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background: currentColor;
+    content: '';
+  }
+  .site-nav__bars::before {
+    transform: translateY(-7px);
+  }
+  .site-nav__bars::after {
+    transform: translateY(5px);
+  }
+  .site-nav__list {
+    position: absolute;
+    inset: 100% 0 auto;
+    display: grid;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--padding-global) var(--space-7);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    list-style: none;
+    font-size: var(--fs-large);
+  }
+  .site-nav__list a:not(:global(.button)) {
+    text-decoration: none;
+  }
+  .site-nav__list a[aria-current='page'] {
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+  }
+
+  @media (min-width: 992px) {
+    .site-nav__toggle {
+      display: none;
+    }
+    /* Always show the list on desktop, whatever the <details> state */
+    .site-nav > .site-nav__list,
+    .site-nav:not([open]) > .site-nav__list {
+      position: static;
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      padding: 0;
+      border: 0;
+      background: none;
+      font-size: var(--fs-regular);
+    }
+    .site-nav__cta {
+      margin-left: var(--space-4);
+    }
+  }
+</style>
+
+<script>
+  // Desktop: keep the nav <details> open so the links are always visible
+  const nav = document.querySelector<HTMLDetailsElement>('.site-nav')
+  const mq = window.matchMedia('(min-width: 992px)')
+  const sync = () => nav && (nav.open = mq.matches)
+  sync()
+  mq.addEventListener('change', sync)
+</script>

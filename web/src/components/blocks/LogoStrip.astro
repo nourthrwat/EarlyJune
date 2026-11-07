@@ -1,0 +1,53 @@
+---
+import Section from '../ui/Section.astro'
+import SanityImage from '../ui/SanityImage.astro'
+import type {Image} from '@/lib/types'
+
+interface Props {
+  heading?: string
+  logos?: {_id: string; name: string; image?: Image; url?: string}[]
+  theme?: string
+}
+
+const {heading, logos = [], theme} = Astro.props
+---
+
+<Section theme={theme} spacing="small">
+  {heading && <p class="eyebrow logos__heading">{heading}</p>}
+  <ul class="logos" role="list">
+    {
+      logos.map((logo) => (
+        <li class="logos__item">
+          {logo.url ? (
+            <a href={logo.url} target="_blank" rel="noopener noreferrer">
+              <SanityImage image={logo.image} alt={logo.name} width={320} sizes="160px" />
+            </a>
+          ) : (
+            <SanityImage image={logo.image} alt={logo.name} width={320} sizes="160px" />
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</Section>
+
+<style>
+  .logos__heading {
+    margin-bottom: var(--space-6);
+    text-align: center;
+  }
+  .logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-6) var(--space-8);
+    padding: 0;
+    list-style: none;
+  }
+  .logos__item :global(img) {
+    max-height: 2.5rem;
+    width: auto;
+    object-fit: contain;
+  }
+</style>

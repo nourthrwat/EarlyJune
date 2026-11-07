@@ -1,0 +1,62 @@
+---
+/** Renders Portable Text (the `richText` type) with the site typography. */
+import {PortableText} from 'astro-portabletext'
+import RichTextImage from './RichTextImage.astro'
+import RichTextLink from './RichTextLink.astro'
+
+interface Props {
+  value?: unknown[] | null
+  class?: string
+}
+
+const {value, class: className} = Astro.props
+---
+
+{
+  value && value.length > 0 && (
+    <div class:list={['rich-text', className]}>
+      <PortableText value={value as never} components={{type: {image: RichTextImage}, mark: {link: RichTextLink}}} />
+    </div>
+  )
+}
+
+<style>
+  .rich-text {
+    font-size: var(--fs-medium);
+    line-height: var(--lh-body);
+  }
+  .rich-text :global(> * + *) {
+    margin-top: var(--space-5);
+  }
+  .rich-text :global(h2),
+  .rich-text :global(h3),
+  .rich-text :global(h4) {
+    margin-top: var(--space-7);
+  }
+  .rich-text :global(h2) {
+    font-size: var(--fs-h3);
+  }
+  .rich-text :global(h3) {
+    font-size: var(--fs-h4);
+  }
+  .rich-text :global(h4) {
+    font-size: var(--fs-large);
+  }
+  .rich-text :global(ul),
+  .rich-text :global(ol) {
+    padding-left: 1.25em;
+  }
+  .rich-text :global(li + li) {
+    margin-top: var(--space-2);
+  }
+  .rich-text :global(blockquote) {
+    padding-left: var(--space-5);
+    border-left: 3px solid var(--accent);
+    font-family: var(--font-display-alt);
+    font-style: italic;
+    font-size: var(--fs-large);
+  }
+  .rich-text :global(a) {
+    text-underline-offset: 0.2em;
+  }
+</style>

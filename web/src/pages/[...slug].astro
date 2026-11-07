@@ -1,0 +1,21 @@
+---
+/** Every `page` document: /about-us, /services, /verticals/healthcare, ... */
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import PageBuilder from '@/components/blocks/PageBuilder.astro'
+import {sanityFetch} from '@/lib/sanity'
+import {PAGE_PATHS_QUERY, PAGE_QUERY} from '@/lib/queries'
+import type {PageDoc} from '@/lib/types'
+
+export async function getStaticPaths() {
+  const paths = (await sanityFetch<string[] | null>(PAGE_PATHS_QUERY)) ?? []
+  return paths.map((slug) => ({params: {slug}}))
+}
+
+const {slug} = Astro.params
+const page = await sanityFetch<PageDoc | null>(PAGE_QUERY, {slug})
+if (!page) return Astro.redirect('/404')
+---
+
+<BaseLayout seo={page.seo} fallbackTitle={page.title}>
+  <PageBuilder blocks={page.pageBuilder} />
+</BaseLayout>

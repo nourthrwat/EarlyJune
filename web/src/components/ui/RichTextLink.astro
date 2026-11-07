@@ -1,0 +1,7 @@
+---
+const {node} = Astro.props as {node: {markDef?: {href?: string; openInNewTab?: boolean}}}
+const href = node.markDef?.href
+const newTab = node.markDef?.openInNewTab || /^https?:\/\//.test(href ?? '')
+---
+
+<a href={href} {...(newTab ? {target: '_blank', rel: 'noopener noreferrer'} : {})}><slot /></a>

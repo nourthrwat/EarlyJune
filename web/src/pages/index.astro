@@ -1,0 +1,23 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import PageBuilder from '@/components/blocks/PageBuilder.astro'
+import Section from '@/components/ui/Section.astro'
+import {sanityFetch} from '@/lib/sanity'
+import {HOME_PAGE_QUERY} from '@/lib/queries'
+import type {PageDoc} from '@/lib/types'
+
+const home = await sanityFetch<PageDoc | null>(HOME_PAGE_QUERY)
+---
+
+<BaseLayout seo={home?.seo}>
+  {
+    home?.pageBuilder?.length ? (
+      <PageBuilder blocks={home.pageBuilder} />
+    ) : (
+      <Section>
+        <h1>Early June</h1>
+        <p class="text-muted">The home page has no sections yet. Add them in Sanity Studio → Home page.</p>
+      </Section>
+    )
+  }
+</BaseLayout>

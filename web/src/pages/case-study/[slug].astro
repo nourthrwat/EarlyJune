@@ -1,0 +1,117 @@
+---
+/** Case study template. Webflow URL: /case-study/<slug> */
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Section from '@/components/ui/Section.astro'
+import SanityImage from '@/components/ui/SanityImage.astro'
+import RichText from '@/components/ui/RichText.astro'
+import CaseStudyCard from '@/components/cards/CaseStudyCard.astro'
+import {sanityFetch, urlFor} from '@/lib/sanity'
+import {CASE_STUDY_SLUGS_QUERY, CASE_STUDY_QUERY} from '@/lib/queries'
+import type {CaseStudyCard as Card, Image, Seo} from '@/lib/types'
+
+export async function getStaticPaths() {
+  const slugs = (await sanityFetch<string[] | null>(CASE_STUDY_SLUGS_QUERY)) ?? []
+  return slugs.map((slug) => ({params: {slug}}))
+}
+
+type CaseStudy = {
+  title: string
+  description?: string
+  brandColor?: string
+  heroImage?: {desktop?: Image; mobile?: Image; alt?: string}
+  challenge?: unknown[]
+  solution?: unknown[]
+  tags?: string[]
+  seo: Seo
+  next?: Card | null
+}
+
+const study = await sanityFetch<CaseStudy | null>(CASE_STUDY_QUERY, {slug: Astro.params.slug})
+if (!study) return Astro.redirect('/404')
+
+const hero = study.heroImage
+---
+
+<BaseLayout seo={study.seo} fallbackTitle={study.title}>
+  <Section spacing="large" class="cs-hero" style={study.brandColor ? `--surface: ${study.brandColor}` : undefined}>
+    <div class="cs-hero__content">
+      {study.tags && study.tags.length > 0 && <p class="eyebrow">{study.tags.join(' · ')}</p>}
+      <h1 class="heading-style-display cs-hero__title">{study.title}</h1>
+      {study.description && <p class="text-size-large">{study.description}</p>}
+    </div>
+    {
+      hero?.desktop && (
+        <picture class="cs-hero__media">
+          {hero.mobile && <source media="(max-width: 767px)" srcset={urlFor(hero.mobile).width(900).url()} />}
+          <SanityImage image={hero.desktop} alt={hero.alt ?? study.title} eager />
+        </picture>
+      )
+    }
+  </Section>
+
+  <Section width="medium">
+    <div class="cs-body">
+      {
+        study.challenge && (
+          <section class="cs-body__part">
+            <h2 class="heading-style-h3">The challenge</h2>
+            <RichText value={study.challenge} />
+          </section>
+        )
+      }
+      {
+        study.solution && (
+          <section class="cs-body__part">
+            <h2 class="heading-style-h3">The solution</h2>
+            <RichText value={study.solution} />
+          </section>
+        )
+      }
+    </div>
+  </Section>
+
+  {
+    study.next && (
+      <Section theme="ivory" width="small">
+        <p class="eyebrow next-label">Next case study</p>
+        <CaseStudyCard study={study.next} />
+      </Section>
+    )
+  }
+</BaseLayout>
+
+<style>
+  :global(.cs-hero) {
+    background: var(--surface);
+  }
+  .cs-hero__content {
+    display: grid;
+    gap: var(--space-5);
+    max-width: 60rem;
+  }
+  .cs-hero__media {
+    display: block;
+    margin-top: var(--space-8);
+  }
+  .cs-hero__media :global(img) {
+    width: 100%;
+    border-radius: var(--radius-large);
+  }
+  .cs-body {
+    display: grid;
+    gap: var(--space-8);
+  }
+  .cs-body__part {
+    display: grid;
+    gap: var(--space-5);
+  }
+  @media (min-width: 992px) {
+    .cs-body__part {
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-8);
+    }
+  }
+  .next-label {
+    margin-bottom: var(--space-5);
+  }
+</style>

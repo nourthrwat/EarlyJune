@@ -1,0 +1,48 @@
+---
+import Section from '../ui/Section.astro'
+import Button from '../ui/Button.astro'
+import type {LinkValue} from '@/lib/links'
+
+interface Props {
+  heading: string
+  text?: string
+  ctas?: LinkValue[]
+  theme?: string
+  level?: 'h1' | 'h2'
+}
+
+const {heading, text, ctas = [], theme = 'coal', level = 'h2'} = Astro.props
+const Tag = level
+---
+
+<Section theme={theme} spacing="large">
+  <div class="cta">
+    <Tag class="heading-style-h2">{heading}</Tag>
+    {text && <p class="text-size-large text-muted">{text}</p>}
+    <div class="cta__actions">
+      {
+        ctas.map((cta, i) => (
+          <Button link={cta} variant={cta.style ?? (i === 0 ? 'primary' : 'secondary')} />
+        ))
+      }
+    </div>
+  </div>
+</Section>
+
+<style>
+  .cta {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-5);
+    max-width: 52rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+</style>

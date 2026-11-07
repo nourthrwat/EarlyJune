@@ -1,0 +1,78 @@
+---
+import Section from '../ui/Section.astro'
+import Button from '../ui/Button.astro'
+import SanityImage from '../ui/SanityImage.astro'
+import type {LinkValue} from '@/lib/links'
+import type {Image} from '@/lib/types'
+
+interface Props {
+  eyebrow?: string
+  heading: string
+  text?: string
+  ctas?: LinkValue[]
+  image?: Image
+  size?: 'large' | 'compact'
+  theme?: string
+  level?: 'h1' | 'h2'
+}
+
+const {eyebrow, heading, text, ctas = [], image, size = 'large', theme, level = 'h1'} = Astro.props
+const Tag = level
+---
+
+<Section theme={theme} spacing={size === 'large' ? 'large' : 'medium'} class={`hero hero--${size}`}>
+  <div class:list={['hero__grid', image && 'hero__grid--media']}>
+    <div class="hero__content">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <Tag class={size === 'large' ? 'heading-style-display' : 'heading-style-h1'}>{heading}</Tag>
+      {text && <p class="text-size-large hero__text">{text}</p>}
+      {
+        ctas.length > 0 && (
+          <div class="hero__actions">
+            {ctas.map((cta, i) => (
+              <Button link={cta} variant={cta.style ?? (i === 0 ? 'primary' : 'secondary')} />
+            ))}
+          </div>
+        )
+      }
+    </div>
+    {
+      image && (
+        <div class="hero__media">
+          <SanityImage image={image} sizes="(min-width: 992px) 50vw, 100vw" eager />
+        </div>
+      )
+    }
+  </div>
+</Section>
+
+<style>
+  .hero__grid {
+    display: grid;
+    gap: var(--space-8);
+    align-items: center;
+  }
+  .hero__content {
+    display: grid;
+    gap: var(--space-5);
+    max-width: 60rem;
+  }
+  .hero__text {
+    max-width: 40rem;
+  }
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+  }
+  .hero__media :global(img) {
+    width: 100%;
+    border-radius: var(--radius-large);
+  }
+  @media (min-width: 992px) {
+    .hero__grid--media {
+      grid-template-columns: 1.1fr 1fr;
+    }
+  }
+</style>

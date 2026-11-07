@@ -1,0 +1,74 @@
+---
+import Section from '../ui/Section.astro'
+import Button from '../ui/Button.astro'
+import SanityImage from '../ui/SanityImage.astro'
+import RichText from '../ui/RichText.astro'
+import type {LinkValue} from '@/lib/links'
+import type {Image} from '@/lib/types'
+
+interface Props {
+  eyebrow?: string
+  heading?: string
+  body?: unknown[]
+  ctas?: LinkValue[]
+  image?: Image
+  imagePosition?: 'left' | 'right'
+  theme?: string
+  level?: 'h1' | 'h2'
+}
+
+const {eyebrow, heading, body, ctas = [], image, imagePosition = 'right', theme, level = 'h2'} = Astro.props
+const Tag = level
+---
+
+<Section theme={theme}>
+  <div class:list={['split', `split--image-${imagePosition}`]}>
+    <div class="split__content">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      {heading && <Tag class="heading-style-h2">{heading}</Tag>}
+      <RichText value={body} />
+      {
+        ctas.length > 0 && (
+          <div class="split__actions">
+            {ctas.map((cta) => (
+              <Button link={cta} />
+            ))}
+          </div>
+        )
+      }
+    </div>
+    <div class="split__media">
+      <SanityImage image={image} sizes="(min-width: 992px) 50vw, 100vw" />
+    </div>
+  </div>
+</Section>
+
+<style>
+  .split {
+    display: grid;
+    gap: var(--space-7);
+    align-items: center;
+  }
+  .split__content {
+    display: grid;
+    gap: var(--space-5);
+  }
+  .split__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+  .split__media :global(img) {
+    width: 100%;
+    border-radius: var(--radius-large);
+  }
+  @media (min-width: 992px) {
+    .split {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-9);
+    }
+    .split--image-left .split__media {
+      order: -1;
+    }
+  }
+</style>

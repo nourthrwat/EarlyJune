@@ -1,0 +1,22 @@
+---
+/** Blog category listing. Webflow URL: /blog-categories/<slug> */
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import PostGrid from '@/components/blocks/PostGrid.astro'
+import {sanityFetch} from '@/lib/sanity'
+import {CATEGORY_SLUGS_QUERY, CATEGORY_QUERY} from '@/lib/queries'
+import type {PostCard, Seo} from '@/lib/types'
+
+export async function getStaticPaths() {
+  const slugs = (await sanityFetch<string[] | null>(CATEGORY_SLUGS_QUERY)) ?? []
+  return slugs.map((slug) => ({params: {slug}}))
+}
+
+type Category = {title: string; seo: Seo; posts: PostCard[]}
+
+const category = await sanityFetch<Category | null>(CATEGORY_QUERY, {slug: Astro.params.slug})
+if (!category) return Astro.redirect('/404')
+---
+
+<BaseLayout seo={category.seo} fallbackTitle={category.title}>
+  <PostGrid heading={category.title} posts={category.posts} limit={0} level="h1" />
+</BaseLayout>

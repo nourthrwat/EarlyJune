@@ -1,0 +1,28 @@
+---
+/**
+ * Section — wraps every page-builder block.
+ * Handles theme, horizontal padding, container width and vertical rhythm,
+ * so blocks never set their own backgrounds or outer spacing.
+ */
+interface Props {
+  theme?: string
+  width?: 'small' | 'medium' | 'large'
+  spacing?: 'none' | 'small' | 'medium' | 'large'
+  as?: 'section' | 'header' | 'div'
+  class?: string
+  style?: string
+}
+
+const THEMES = ['light', 'ivory', 'coal', 'blue', 'gold', 'green']
+const {theme = 'light', width = 'large', spacing = 'medium', as: Tag = 'section', class: className, style} = Astro.props
+const safeTheme = THEMES.includes(theme) ? theme : 'light'
+---
+
+<Tag
+  class:list={[`theme-${safeTheme}`, 'padding-global', spacing !== 'none' && `padding-section-${spacing}`, className]}
+  style={style}
+>
+  <div class={`container-${width}`}>
+    <slot />
+  </div>
+</Tag>
