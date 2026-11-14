@@ -1,0 +1,19 @@
+# Migrated from Webflow. Edit freely — order here is display order.
+- id: jan
+  name: Jan
+  jobTitle: Strategy, Tactics & Analysis
+  photo:
+    src: https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3daf6_image%2097.png
+    alt: ""
+- id: renea
+  name: Renea
+  jobTitle: Strategy, Tactics & Analysis
+  photo:
+    src: https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3db14_image%2097%20(1).png
+    alt: ""
+- id: luke
+  name: Luke
+  jobTitle: Paid Social & Creative Strategy
+  photo:
+    src: https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3db37_image%2097%20(2).png
+    alt: ""

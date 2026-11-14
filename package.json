@@ -1,16 +1,28 @@
 {
   "name": "earlyjune",
   "private": true,
-  "description": "Early June website — Astro frontend + Sanity Studio (migrated from Webflow)",
+  "type": "module",
+  "description": "Early June website — static Astro site migrated from Webflow, edited through Slack",
   "engines": {
     "node": ">=22.12"
   },
   "scripts": {
-    "install:all": "npm --prefix web install && npm --prefix studio install",
-    "dev:web": "npm --prefix web run dev",
-    "dev:studio": "npm --prefix studio run dev",
-    "build:web": "npm --prefix web run build",
-    "build:studio": "npm --prefix studio run build",
-    "build": "npm run build:studio && npm run build:web"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "migrate:cms": "node scripts/webflow-cms-to-content.mjs migration/webflow-cms.json",
+    "localize-images": "node scripts/localize-images.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.4.12",
+    "marked": "^18.2.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "turndown": "^7.2.5",
+    "typescript": "^5.9.0",
+    "yaml": "^2.8.0"
   }
 }

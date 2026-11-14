@@ -1,0 +1,9 @@
+---
+// Temporary check page — replaced by the real home page in the page rebuild step.
+import {getCollection} from 'astro:content'
+const posts = await getCollection('posts')
+const studies = await getCollection('caseStudies')
+const team = await getCollection('team')
+---
+
+<p>Content OK: {posts.length} posts, {studies.length} case studies, {team.length} team members.</p>

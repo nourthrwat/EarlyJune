@@ -1,29 +1,32 @@
 # Early June
 
-Marketing site for Early June, migrated from Webflow to **Astro + Sanity**.
+Marketing site for Early June — migrated from Webflow to a **static Astro site** with no CMS.
+The team requests changes in Slack; each change ships as a reviewed pull request.
 
-```
-web/      Astro site (static) — reads content from Sanity at build time
-studio/   Sanity Studio — where the team edits content
-docs/     Content model, component catalogue, SEO inventory, migration plan
-scripts/  Tooling (mock API, migration)
-```
+> The earlier Astro + Sanity version lives on the [`sanity`](../../tree/sanity) branch.
 
 ## Quick start
 
 ```bash
-npm run install:all
-cp web/.env.example web/.env
-npm run dev:studio   # CMS on http://localhost:3333
-npm run dev:web      # site on http://localhost:4321
+npm install
+npm run dev      # http://localhost:4321
 ```
 
-## Key docs
+## Structure
 
-- **[CLAUDE.md](CLAUDE.md)** — rules for anyone (human or AI) changing this repo
-- **[docs/components.md](docs/components.md)** — design tokens, themes, blocks, how to add a block
-- **[docs/content-model.md](docs/content-model.md)** — Webflow → Sanity field mapping
-- **[docs/seo-inventory.md](docs/seo-inventory.md)** — every URL that must survive the migration
-- **[docs/next-steps.md](docs/next-steps.md)** — migration status, blockers, what's next
+```
+src/content/        Blog posts, case studies, legal pages (Markdown)
+src/data/           Logos, team, FAQs, tags, categories (YAML)
+src/content.config.ts  Field rules for all content — the build fails on bad content
+src/pages/          One file per page/route
+migration/          Raw Webflow CMS export used for the migration
+scripts/            Migration tools (reusable for other Webflow sites)
+```
 
-Live style guide: `/styleguide` (not indexed).
+## Migration scripts
+
+- `npm run migrate:cms` — Webflow CMS export (`migration/webflow-cms.json`) → Markdown/YAML
+- `npm run localize-images` — download images from Webflow's CDN into `public/images/cms/`
+  and rewrite references. **Run before Webflow is cancelled.**
+
+See [CLAUDE.md](CLAUDE.md) for the rules every change must follow.

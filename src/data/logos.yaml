@@ -1,0 +1,46 @@
+# Migrated from Webflow. Edit freely — order here is display order.
+- id: barkbox
+  name: barkbox
+  logo:
+    src: https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbc0_barkbox_yellow.png
+    alt: ""
+- id: being-health
+  name: Being health
+  logo:
+    src: https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbd3_being-health_yellow.svg
+    alt: ""
+- id: drink-nowdays
+  name: drink nowdays
+  logo:
+    src: https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbd4_drink-nowadays_yellow.png
+    alt: ""
+- id: golden-child
+  name: golden child
+  logo:
+    src: https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbd5_golden-child_yellow.svg
+    alt: ""
+- id: granted-health
+  name: Granted health
+  logo:
+    src: https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbd6_granted-health_yellow.svg
+    alt: ""
+- id: happen
+  name: Happen
+  logo:
+    src: https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbd7_happen-bank_yellow.png
+    alt: ""
+- id: ophelia
+  name: Ophelia
+  logo:
+    src: https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbd8_ophelia-health_yellow.svg
+    alt: ""
+- id: jones
+  name: Jones
+  logo:
+    src: https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbd9_quit-with-jones_yellow.png
+    alt: ""
+- id: wgaca
+  name: Wgaca
+  logo:
+    src: https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbda_wgaca_yellow.png
+    alt: ""

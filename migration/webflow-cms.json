@@ -1,0 +1,111 @@
+{
+  "_source": "Webflow site 'Copy of Early June' (6ab98d8daf6ccf6378b3dad6), Data API list_collection_items, exported 2026-11-14",
+  "collections": {
+    "blog-categories": {
+      "slug": "blog-categories",
+      "items": [
+        {"id": "6ab98d8daf6ccf6378b3dbfb", "createdOn": "2026-09-21T13:00:57.377Z", "fieldData": {"name": "Marketing & Strategy", "slug": "marketing-strategy"}},
+        {"id": "6ab98d8daf6ccf6378b3dbfa", "createdOn": "2026-09-21T13:00:50.469Z", "fieldData": {"name": "Production", "slug": "production"}},
+        {"id": "6ab98d8daf6ccf6378b3dbf9", "createdOn": "2026-09-21T13:00:40.314Z", "fieldData": {"name": "Creative", "slug": "creative-hreao"}},
+        {"id": "6ab98d8daf6ccf6378b3dbf8", "createdOn": "2026-09-21T13:00:32.395Z", "fieldData": {"name": "Paid Social", "slug": "paid-social"}},
+        {"id": "6ab98d8daf6ccf6378b3dbf7", "createdOn": "2026-09-21T13:00:24.981Z", "fieldData": {"name": "SEM", "slug": "sem"}}
+      ]
+    },
+    "case-study-tags": {
+      "slug": "case-study-tage",
+      "items": [
+        {"id": "6ab98d8daf6ccf6378b3dbf1", "createdOn": "2026-09-21T12:17:26.590Z", "fieldData": {"name": "creative direction", "slug": "creative-direction"}},
+        {"id": "6ab98d8daf6ccf6378b3dbf0", "createdOn": "2026-09-21T12:17:20.359Z", "fieldData": {"name": "Media management", "slug": "media-management"}},
+        {"id": "6ab98d8daf6ccf6378b3dbef", "createdOn": "2026-09-21T12:17:13.852Z", "fieldData": {"name": "SEM", "slug": "sem"}}
+      ]
+    },
+    "faq-tags": {
+      "slug": "faq-tags",
+      "items": [
+        {"id": "6ab98d8daf6ccf6378b3dbea", "createdOn": "2026-09-18T09:48:48.343Z", "fieldData": {"name": "Financial Services", "slug": "financial-services"}},
+        {"id": "6ab98d8daf6ccf6378b3dbe9", "createdOn": "2026-09-18T09:48:30.656Z", "fieldData": {"name": "E-commerce", "slug": "e-commerce"}},
+        {"id": "6ab98d8daf6ccf6378b3dbe8", "createdOn": "2026-09-18T09:48:18.556Z", "fieldData": {"name": "Healthcare", "slug": "healthcare"}}
+      ]
+    },
+    "faqs": {
+      "slug": "faq",
+      "items": [
+        {"id": "6ab98d8daf6ccf6378b3dbe4", "createdOn": "2026-09-14T11:31:02.883Z", "fieldData": {"name": "Comprehensive audit of all ad accounts", "slug": "comprehensive-audit-of-all-ad-accounts", "answer": "We go through every account line by line — structure, targeting, creative and spend — and show you exactly where budget is leaking and where it should go instead.", "tags": null}},
+        {"id": "6ab98d8daf6ccf6378b3dbe5", "createdOn": "2026-09-14T11:31:20.207Z", "fieldData": {"name": "Optimization roadmap & existing platform expansion", "slug": "optimization-roadmap-existing-platform-expansion", "answer": "Clients can expect fast turnaround times on content strategies through the use of AI-powered tools that lower CAC while optimizing spend.", "tags": null}},
+        {"id": "6ab98d8daf6ccf6378b3dbe6", "createdOn": "2026-09-14T11:31:37.157Z", "fieldData": {"name": "Other channel opportunity analysis", "slug": "other-channel-opportunity-analysis", "answer": "A candid read on the channels you're not on yet: which ones are worth a test, which ones aren't worth your money, and what it would take to get started.", "tags": null}},
+        {"id": "6ab98d8daf6ccf6378b3dbe7", "createdOn": "2026-09-14T11:31:50.435Z", "fieldData": {"name": "Quarterly & annual growth plans", "slug": "quarterly-annual-growth-plans", "answer": "A concrete plan with targets by channel and by quarter, so everyone on your team knows what's being tested, why, and what happens next.", "tags": null}}
+      ]
+    },
+    "logos": {
+      "slug": "logos",
+      "items": [
+        {"id": "6ab98d8daf6ccf6378b3dbdb", "createdOn": "2026-09-27T21:36:20.823Z", "fieldData": {"name": "barkbox", "slug": "barkbox", "logo": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbc0_barkbox_yellow.png", "alt": null}}},
+        {"id": "6ab98d8daf6ccf6378b3dbdc", "createdOn": "2026-09-27T21:36:57.744Z", "fieldData": {"name": "Being health", "slug": "being-health", "logo": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbd3_being-health_yellow.svg", "alt": null}}},
+        {"id": "6ab98d8daf6ccf6378b3dbdd", "createdOn": "2026-09-27T21:37:15.320Z", "fieldData": {"name": "drink nowdays", "slug": "drink-nowdays", "logo": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbd4_drink-nowadays_yellow.png", "alt": null}}},
+        {"id": "6ab98d8daf6ccf6378b3dbde", "createdOn": "2026-09-27T21:37:34.880Z", "fieldData": {"name": "golden child", "slug": "golden-child", "logo": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbd5_golden-child_yellow.svg", "alt": null}}},
+        {"id": "6ab98d8daf6ccf6378b3dbdf", "createdOn": "2026-09-27T21:37:59.080Z", "fieldData": {"name": "Granted health", "slug": "granted-health", "logo": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbd6_granted-health_yellow.svg", "alt": null}}},
+        {"id": "6ab98d8daf6ccf6378b3dbe0", "createdOn": "2026-09-27T21:38:16.330Z", "fieldData": {"name": "Happen", "slug": "happen", "logo": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbd7_happen-bank_yellow.png", "alt": null}}},
+        {"id": "6ab98d8daf6ccf6378b3dbe1", "createdOn": "2026-09-27T21:38:35.365Z", "fieldData": {"name": "Ophelia", "slug": "ophelia", "logo": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbd8_ophelia-health_yellow.svg", "alt": null}}},
+        {"id": "6ab98d8daf6ccf6378b3dbe2", "createdOn": "2026-09-27T21:38:49.801Z", "fieldData": {"name": "Jones", "slug": "jones", "logo": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbd9_quit-with-jones_yellow.png", "alt": null}}},
+        {"id": "6ab98d8daf6ccf6378b3dbe3", "createdOn": "2026-09-27T21:39:24.662Z", "fieldData": {"name": "Wgaca", "slug": "wgaca", "logo": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dbda_wgaca_yellow.png", "alt": null}}}
+      ]
+    },
+    "team": {
+      "slug": "team",
+      "items": [
+        {"id": "6ab98d8daf6ccf6378b3dbec", "createdOn": "2026-09-19T18:10:24.769Z", "fieldData": {"name": "Jan", "slug": "jan", "job-title": "Strategy, Tactics & Analysis", "profile-picture": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3daf6_image%2097.png", "alt": null}}},
+        {"id": "6ab98d8daf6ccf6378b3dbed", "createdOn": "2026-09-19T18:10:59.757Z", "fieldData": {"name": "Renea", "slug": "renea", "job-title": "Strategy, Tactics & Analysis", "profile-picture": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3db14_image%2097%20(1).png", "alt": null}}},
+        {"id": "6ab98d8daf6ccf6378b3dbee", "createdOn": "2026-09-19T18:11:51.655Z", "fieldData": {"name": "Luke", "slug": "luke", "job-title": "Paid Social & Creative Strategy", "profile-picture": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3db37_image%2097%20(2).png", "alt": null}}}
+      ]
+    },
+    "verticals": {"slug": "vertical", "items": []},
+    "case-studies": {
+      "slug": "case-study",
+      "items": [
+        {"id": "6ab98d8daf6ccf6378b3dbeb", "createdOn": "2026-09-19T12:29:30.011Z", "fieldData": {
+          "name": "Hey Jane",
+          "slug": "hey-jane",
+          "description": "Helping a virtual clinic expand their reach to become the #1 online virtual reproductive and sexual healthcare service.",
+          "image": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3dadf_4f69cf5ef20356991f9d0e866fb7c0f32e7428ea%20(2).png", "alt": null},
+          "image-mobile": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3db57_Feature%20image.png", "alt": null},
+          "hero-bg-color": "#5865e8",
+          "inner-page-image-desltop": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3db7d_Sercvices.png", "alt": null},
+          "inner-page-image-mobile": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3db57_Feature%20image.png", "alt": null},
+          "challenge": "<h3>Hey Jane came to Early June to dramatically increase net-new patient acquisition, while needing to stay HIPAA-compliant in a hyper-litigious industry. Growth needed to be effective, structured and smart.</h3><p>Every keyword, every piece of messaging and every landing page needed legal sign-off before launch — which meant standard test-and-learn cycles were off the table from day one.</p><p>Meanwhile, acquisition costs across the category were climbing year over year, and the in-house team was stretched thin across product, care operations and compliance.</p><p>The brief: a growth engine that could scale spend confidently without ever putting patient privacy, or the brand, at risk.</p>",
+          "solution": "<h3>By finding broad match keyword sets, and the right messaging, Early June was able to help Hey Jane unlock unprecedented levels of new patient growth, while balancing all HIPAA requirements.</h3><p>Hey Jane came to Early June to dramatically increase net-new patient acquisition, while needing to stay HIPAA-compliant in a hyper-litigious industry. Growth needed to be effective, structured and smart.</p><p>Meanwhile, acquisition costs across the category were climbing year over year, and the in-house team was stretched thin across product, care operations and compliance.</p><p>The brief: a growth engine that could scale spend confidently without ever putting patient privacy, or the brand, at risk.</p>",
+          "tags": ["6ab98d8daf6ccf6378b3dbef", "6ab98d8daf6ccf6378b3dbf1", "6ab98d8daf6ccf6378b3dbf0"]
+        }}
+      ]
+    },
+    "posts": {
+      "slug": "post",
+      "items": [
+        {"id": "6ab98d8daf6ccf6378b3dbf6", "createdOn": "2026-09-21T14:30:05.997Z", "fieldData": {
+          "name": "What your audit should reveal",
+          "slug": "what-your-audit-should-reveal",
+          "post-summary": "Helping a virtual clinic expand their reach to become the #1 online virtual reproductive and sexual healthcare service.",
+          "main-image": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3db9c_95adbae0c94bdbc905147ae0b9fb70cd21a38b29%20(1).png", "alt": null},
+          "thumbnail-image": {"url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3db9c_95adbae0c94bdbc905147ae0b9fb70cd21a38b29%20(1).png", "alt": null},
+          "featured": true,
+          "read-time": "5 min read",
+          "category": "6ab98d8daf6ccf6378b3dbfb",
+          "post-body": "<p>Become a Vanguardista or an Ultra Vanguardista to get video episodes of Take Two every week, plus member-only chat rooms, polls and submissions to influence the show, behind-the-scenes photos and videos, the monthly Redactor’s Roundup newsletter, and access to a new fortnightly LIVE show - a raucous, unfiltered lunchtime special with the Good Doctors, new features, and live chat so you can heckle, vote, and have your questions read out in real time.</p><h4>Growth had to be effective, structured — and smart.</h4><p>Three more of the week’s big screen offerings reviewed by the Good Doctors on the Take. First up, The Dog Stars—Ridley Scott’s latest post-apocalyptic survival thriller offering starring Jacob Elordi and Josh Brolin. Then there’s the new drama from our favourite multicoloured Spanish maximalist Pedro Almodóvar, Bitter Christmas, and even more outrageously, Gregg Araki’s kinky comedy I Want Your Sex, starring Olivia Wilde and Cooper Hoffman.</p><p>Plus our guest this week is Michael Sarnoski, director of Pig, A Quiet Place: Day One, and now The Death of Robin Hood, Out next week, it shows us a darker side of the folk legend, following Hugh Jackman’s grizzled Robin Hood in later life as he reckons with the legacy of years of violence. No men in tights here, sorry. Michael chats to Simon and Mark about reimagining this famous take and directing Huge Action through some serious Northern Irish mud.</p><h5>Michael chats to Simon and Mark about reimagining this famous take and directing Huge Action through some serious Northern Irish mud.</h5>"
+        }},
+        {"id": "6ab98d8daf6ccf6378b3dbf2", "createdOn": "2026-09-21T13:44:38.131Z", "fieldData": {"name": "Comprehensive audit of all ad accounts", "slug": "comprehensive-audit-of-all-ad-accounts", "post-body": null, "post-summary": null, "main-image": null, "thumbnail-image": null, "featured": false, "read-time": null, "category": null}},
+        {"id": "6ab98d8daf6ccf6378b3dbf3", "createdOn": "2026-09-21T13:45:02.293Z", "fieldData": {"name": "Optimization roadmap & existing platform expansion", "slug": "optimization-roadmap-existing-platform-expansion", "post-body": null, "post-summary": null, "main-image": null, "thumbnail-image": null, "featured": false, "read-time": null, "category": null}},
+        {"id": "6ab98d8daf6ccf6378b3dbf4", "createdOn": "2026-09-21T13:45:09.975Z", "fieldData": {"name": "Other channel opportunity analysis", "slug": "other-channel-opportunity-analysis", "post-body": null, "post-summary": null, "main-image": null, "thumbnail-image": null, "featured": false, "read-time": null, "category": null}},
+        {"id": "6ab98d8daf6ccf6378b3dbf5", "createdOn": "2026-09-21T13:45:20.247Z", "fieldData": {"name": "Quarterly & annual growth plans", "slug": "quarterly-annual-growth-plans", "post-body": null, "post-summary": null, "main-image": null, "thumbnail-image": null, "featured": false, "read-time": null, "category": null}}
+      ]
+    },
+    "legal-pages": {
+      "slug": "legal-page",
+      "items": [
+        {"id": "6ab98d8daf6ccf6378b3dbfc", "createdOn": "2026-09-27T20:05:34.545Z", "fieldData": {
+          "name": "Privacy Policy",
+          "slug": "privacy-policy",
+          "privacy-policy": "<h1>Privacy Policy</h1><p>We are committed to protecting your privacy and security online. This page describes the type of information we collect, how we use it, and how we keep it secure, including our use of cookies.</p><h2>Personally Identifiable Information</h2><p>We only collect and store Personally Identifiable Information about you if it is voluntarily submitted. Personally Identifiable Information may include your name, email address, physical address, and other information that specifically identifies you.</p><p>Any information we collect will only be used within Early June and will not be shared with other organizations. We do not send unsolicited emails to anyone who provides us with their email address.</p><p>Early June Ventures, Inc. is fully GDPR and CCPA compliant. See below for information about how to exercise your rights under these regulations.</p><h2>Other Types of Information</h2><p>We may automatically collect and store anonymous information about your use of this website. Examples of this type of information include demographic information, the type of internet browser you are using, the type of computer operating system, application software and peripherals you are using, the domain name of the website from which you linked to our site, and your browsing habits.</p><h2>Cookies</h2><p>This site uses cookies. The first time you visit, we assign an ID that is stored as a cookie on your computer.</p><p>Cookies do not contain any personal information about you. We collect this information solely to learn more about visitors to the different sections of our site and to help make your experience more useful and informative.</p><p>We do not share such information with anyone else. You may disable cookies within your browser.</p><p>Follow these links for further information:</p><p><strong>Chrome:</strong> <a href=\"https://support.google.com/chrome/answer/95647?hl=en\">https://support.google.com/chrome/answer/95647?hl=en</a></p><p><strong>Safari:</strong> <a href=\"https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471\">https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471</a></p><p><strong>Internet Explorer:</strong> <a href=\"https://support.microsoft.com/en-us/topic/description-of-cookies-ad01aa7e-66c9-8ab2-7898-6652c100999d\">https://support.microsoft.com/en-us/topic/description-of-cookies-ad01aa7e-66c9-8ab2-7898-6652c100999d</a></p><h2>Security</h2><p>We are committed to high standards of information security. We have appropriate technical, administrative, and physical policies and procedures in place to prevent unauthorized access, maintain data accuracy, and ensure the appropriate use of information.</p><h2>Links</h2><p>Our site may contain links to websites maintained by third parties. While we make every effort to only link to sites that share our high standards, we cannot be responsible for their privacy and security practices.</p><h2>Changes to This Policy</h2><p>Our Privacy Policy is reviewed regularly to ensure that it reflects how we use your information. Any changes will be notified by updating this page.</p><p>The policy was last updated on January 12, 2023.</p><h2>Contacting Us</h2><p>If you are a California resident and would like to exercise your rights under the California Consumer Privacy Act (CCPA), please email <a href=\"mailto:jan@earlyjune.com\"><strong>jan@earlyjune.com</strong></a>.</p><p>If you are an EU citizen and would like to exercise your rights under the General Data Protection Regulation (GDPR), please email <a href=\"mailto:jan@earlyjune.com\"><strong>jan@earlyjune.com</strong></a>.</p><p>For all other questions about this privacy policy, cookies, the practices of this site, or the information we might hold about you, please email <a href=\"mailto:jan@earlyjune.com\"><strong>jan@earlyjune.com</strong></a>.</p><p>‍</p>"
+        }}
+      ]
+    }
+  }
+}

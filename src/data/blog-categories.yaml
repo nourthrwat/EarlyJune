@@ -1,0 +1,11 @@
+# Migrated from Webflow. Edit freely — order here is display order.
+- id: marketing-strategy
+  name: Marketing & Strategy
+- id: production
+  name: Production
+- id: creative-hreao
+  name: Creative
+- id: paid-social
+  name: Paid Social
+- id: sem
+  name: SEM
