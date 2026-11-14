@@ -22,6 +22,32 @@ link, and goes live only after the client approves it.
 | Team members | `src/data/team.yaml` | — |
 | FAQs | `src/data/faqs.yaml` | — |
 | Page copy (home, about, services…) | `src/pages/*.astro` | same path |
+| Header / footer links | `src/components/Header.astro`, `src/components/Footer.astro` | every page |
+
+## How pages are built
+
+The markup and CSS were rebuilt 1:1 from the Webflow Designer (Client-First naming), so page files
+use the **same class names as Webflow**: `section_*`, `padding-global`, `container-large`,
+`heading-style-*`, `text-color-*`, `spacer-*`…
+
+- `src/styles/webflow.css` — GENERATED from Webflow by `scripts/webflow-styles-to-css.mjs`. Never edit by hand.
+- `src/styles/site.css` — the only place for hand-written CSS (keep it tiny).
+- `src/components/` — the Webflow components, with the same names and variants:
+
+| Component | Use it like | Variants |
+|---|---|---|
+| `Header` | `<Header variant="white-light" logoColor="white-light" logoMobile="white-light" />` on dark heroes | base, white-light |
+| `Footer` | `<Footer />` | — |
+| `Button` | `<Button href="/audit" text="Say hi" variant="soild" />` | base, soild, white, black, black-soild, white-soild |
+| `ButtonIcon` | `<ButtonIcon href="/audit" text="Request an audit" variant="gold-dark" />` | base, blue-dark-icon, blue-dark-large, gold-dark, green |
+| `Faq` | `<Faq question="…" answer="…" />` | base, white-light, ivory |
+| `SectionQuote` | `<SectionQuote quote="…" name="…" title="…" photo="…" />` | — |
+| `SectionDefine` | `<SectionDefine eyebrow="…" title="…" text="…" />` | base, gold-dark, coal-dark |
+| `SectionCta` | `<SectionCta title="…" buttonText="…" buttonHref="/audit" />` | — |
+| `SectionCtaBlue` | `<SectionCtaBlue title="…" text="…" />` | base, bg-2, without-subheading, bg-2-without-subheading |
+| `CaseStudyCard` | `<CaseStudyCard title="…" description="…" buttonHref="/case-study/…" />` | base, gold-light |
+
+`/styleguide` shows every color, heading class, button and section in one place.
 
 Field rules for every file are in `src/content.config.ts`. The build fails on a missing required
 field, a wrong type, or a reference to a tag/category that doesn't exist — fix the content, never
@@ -36,6 +62,7 @@ loosen the schema to make an error go away.
    "swap the team photo" → edit the Markdown/YAML (or the copy in the page file). No CSS, no new components.
 3. **Use the existing design system.** Reuse existing classes and components; check `/styleguide`
    first. No new colors, font sizes or spacing values — use the CSS variables that already exist.
+   To build a new section, copy a similar section from another page and change the copy.
 4. **New post or case study** → copy an existing file in the same folder, keep the same fields.
 5. **Images** go in `public/images/` and are referenced as `/images/...`. Always fill `alt`.
 6. **One `<h1>` per page.**

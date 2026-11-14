@@ -1,0 +1,9 @@
+---
+// Webflow component "navbar logo link". Variants: base | white-light
+import {logo} from '@/lib/embeds'
+interface Props { variant?: string }
+const {variant = 'base'} = Astro.props
+---
+<a href="/" aria-label="Early June home" class:list={['navbar2_logo-link w-nav-brand', variant !== 'base' && `variant-${variant}`]}>
+  <div class="logo-svg w-embed"><Fragment set:html={logo} /></div>
+</a>

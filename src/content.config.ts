@@ -65,6 +65,8 @@ const caseStudies = defineCollection({
   loader: glob({pattern: '**/*.md', base: 'src/content/case-studies'}),
   schema: z.object({
     title: z.string(),
+    /** Big headline on the case study page (defaults to the title) */
+    headline: z.string().optional(),
     description: z.string().optional(),
     tags: z.array(reference('caseStudyTags')).default([]),
     brandColor: z
@@ -79,6 +81,8 @@ const caseStudies = defineCollection({
     challenge: z.string().optional(),
     /** Markdown */
     solution: z.string().optional(),
+    /** "Results" numbers on the case study page */
+    results: z.array(z.object({number: z.string(), label: z.string()})).default([]),
     order: z.number().optional(),
     seo: z.object({title: z.string().optional(), description: z.string().optional()}).optional(),
   }),

@@ -1,0 +1,6 @@
+---
+// Webflow component "button". Variants: base | soild | white | black | black-soild | white-soild
+interface Props { variant?: string; href?: string; text?: string }
+const {variant = 'base', href = '#', text = "Let's talk"} = Astro.props
+---
+<a href={href} class:list={['button', variant !== 'base' && `variant-${variant}`]}>{text}</a>

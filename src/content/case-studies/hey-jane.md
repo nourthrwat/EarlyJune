@@ -1,5 +1,6 @@
 ---
 title: Hey Jane
+headline: How Hey Jane stayed HIPAA-compliant, at scale.
 description: "Helping a virtual clinic expand their reach to become the #1 online virtual reproductive and sexual healthcare service."
 tags:
   - sem
@@ -18,6 +19,13 @@ heroImage:
 heroImageMobile:
   src: https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad3/6ab98d8daf6ccf6378b3db57_Feature%20image.png
   alt: ""
+results:
+  - number: "70,000+"
+    label: patients now trust Hey Jane with their healthcare
+  - number: "20"
+    label: patients now trust Hey Jane with their healthcare
+  - number: 30%
+    label: decrease in YoY CAC
 challenge: |-
   ### Hey Jane came to Early June to dramatically increase net-new patient acquisition, while needing to stay HIPAA-compliant in a hyper-litigious industry. Growth needed to be effective, structured and smart.
 

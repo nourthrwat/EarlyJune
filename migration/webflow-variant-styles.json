@@ -1,0 +1,304 @@
+{
+ "_source": "Webflow component variant overrides (data_component_variants_tool > get_variant_styles). Each variant is rendered as a `variant-<slug>` class on the component root.",
+ "styles": [
+  {
+   "selector": ".button.variant-soild",
+   "properties": {
+    "background-color": "transparent",
+    "transition-property": "all",
+    "transition-duration": "300ms",
+    "transition-timing-function": "ease",
+    "color": {
+     "id": "variable-0c7c8627-9ccf-c757-c4a9-1d6c9577a924"
+    }
+   }
+  },
+  {
+   "selector": ".button.variant-soild",
+   "pseudo": "hover",
+   "properties": {
+    "background-color": {
+     "id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44"
+    },
+    "color": {
+     "id": "variable-f20b3953-12af-dfcc-03fa-3bd5c8a144bc"
+    }
+   }
+  },
+  {
+   "selector": ".button.variant-white",
+   "properties": {
+    "height": "4.5rem",
+    "padding-right": "2rem",
+    "padding-left": "2rem",
+    "border-top-color": {
+     "id": "variable-7c340a38-4440-2218-7fab-76fb9540b876"
+    },
+    "border-right-color": {
+     "id": "variable-7c340a38-4440-2218-7fab-76fb9540b876"
+    },
+    "border-bottom-color": {
+     "id": "variable-7c340a38-4440-2218-7fab-76fb9540b876"
+    },
+    "border-left-color": {
+     "id": "variable-7c340a38-4440-2218-7fab-76fb9540b876"
+    },
+    "background-color": {
+     "id": "variable-7c340a38-4440-2218-7fab-76fb9540b876"
+    },
+    "transition-property": "all",
+    "transition-duration": "300ms",
+    "transition-timing-function": "ease",
+    "color": {
+     "id": "variable-0c7c8627-9ccf-c757-c4a9-1d6c9577a924"
+    }
+   }
+  },
+  {
+   "selector": ".button.variant-white",
+   "pseudo": "hover",
+   "properties": {
+    "background-color": "transparent",
+    "color": {
+     "id": "variable-09d8c7f9-2afb-ae7b-6869-4f666e659acd"
+    }
+   }
+  },
+  {
+   "selector": ".button.variant-black",
+   "properties": {
+    "height": "4.5rem",
+    "padding-right": "2rem",
+    "padding-left": "2rem",
+    "border-top-color": {
+     "id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44"
+    },
+    "border-right-color": {
+     "id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44"
+    },
+    "border-bottom-color": {
+     "id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44"
+    },
+    "border-left-color": {
+     "id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44"
+    },
+    "background-color": {
+     "id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44"
+    },
+    "transition-property": "all",
+    "transition-duration": "300ms",
+    "transition-timing-function": "ease",
+    "color": {
+     "id": "variable-09d8c7f9-2afb-ae7b-6869-4f666e659acd"
+    }
+   }
+  },
+  {
+   "selector": ".button.variant-black",
+   "pseudo": "hover",
+   "properties": {
+    "background-color": "transparent",
+    "color": {
+     "id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44"
+    }
+   }
+  },
+  {
+   "selector": ".button.variant-black-soild",
+   "properties": {
+    "height": "4.5rem",
+    "padding-right": "2rem",
+    "padding-left": "2rem",
+    "border-top-color": {
+     "id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44"
+    },
+    "border-right-color": {
+     "id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44"
+    },
+    "border-bottom-color": {
+     "id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44"
+    },
+    "border-left-color": {
+     "id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44"
+    },
+    "background-color": "transparent",
+    "transition-property": "all",
+    "transition-duration": "300ms",
+    "transition-timing-function": "ease",
+    "color": {
+     "id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44"
+    }
+   }
+  },
+  {
+   "selector": ".button.variant-black-soild",
+   "pseudo": "hover",
+   "properties": {
+    "background-color": {
+     "id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44"
+    },
+    "color": {
+     "id": "variable-09d8c7f9-2afb-ae7b-6869-4f666e659acd"
+    }
+   }
+  },
+  {
+   "selector": ".button.variant-white-soild",
+   "properties": {
+    "height": "4.5rem",
+    "padding-right": "2rem",
+    "padding-left": "2rem",
+    "border-top-color": {
+     "id": "variable-7c340a38-4440-2218-7fab-76fb9540b876"
+    },
+    "border-right-color": {
+     "id": "variable-7c340a38-4440-2218-7fab-76fb9540b876"
+    },
+    "border-bottom-color": {
+     "id": "variable-7c340a38-4440-2218-7fab-76fb9540b876"
+    },
+    "border-left-color": {
+     "id": "variable-7c340a38-4440-2218-7fab-76fb9540b876"
+    },
+    "background-color": "transparent",
+    "transition-property": "all",
+    "transition-duration": "300ms",
+    "transition-timing-function": "ease",
+    "color": {
+     "id": "variable-09d8c7f9-2afb-ae7b-6869-4f666e659acd"
+    }
+   }
+  },
+  {
+   "selector": ".button.variant-white-soild",
+   "pseudo": "hover",
+   "properties": {
+    "background-color": {
+     "id": "variable-7c340a38-4440-2218-7fab-76fb9540b876"
+    },
+    "color": {
+     "id": "variable-0c7c8627-9ccf-c757-c4a9-1d6c9577a924"
+    }
+   }
+  },
+  {
+   "selector": ".fix-nav.variant-white-light .navbar2_link",
+   "properties": {
+    "color": {
+     "id": "variable-09d8c7f9-2afb-ae7b-6869-4f666e659acd"
+    }
+   }
+  },
+  {
+   "selector": ".fix-nav.variant-white-light .navbar2_link",
+   "pseudo": "hover",
+   "properties": {
+    "border-bottom-color": {
+     "id": "variable-09d8c7f9-2afb-ae7b-6869-4f666e659acd"
+    }
+   }
+  },
+  {
+   "selector": ".fix-nav.variant-white-light .button.is-navbar2-button",
+   "properties": {
+    "border-top-color": {
+     "id": "variable-09d8c7f9-2afb-ae7b-6869-4f666e659acd"
+    },
+    "border-right-color": {
+     "id": "variable-09d8c7f9-2afb-ae7b-6869-4f666e659acd"
+    },
+    "border-bottom-color": {
+     "id": "variable-09d8c7f9-2afb-ae7b-6869-4f666e659acd"
+    },
+    "border-left-color": {
+     "id": "variable-09d8c7f9-2afb-ae7b-6869-4f666e659acd"
+    },
+    "background-color": {
+     "id": "variable-09d8c7f9-2afb-ae7b-6869-4f666e659acd"
+    },
+    "color": {
+     "id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44"
+    }
+   }
+  },
+  {
+   "selector": ".navbar2_logo-link.variant-white-light",
+   "properties": {
+    "color": {
+     "id": "variable-f20b3953-12af-dfcc-03fa-3bd5c8a144bc"
+    }
+   }
+  },
+  {
+   "selector": ".button.is-icon.variant-blue-dark-large",
+   "properties": {
+    "height": "4.5rem",
+    "padding-left": "2rem",
+    "border-top-left-radius": "183.21rem",
+    "border-top-right-radius": "183.21rem",
+    "border-bottom-left-radius": "183.21rem",
+    "border-bottom-right-radius": "183.21rem",
+    "font-size": "1.5rem"
+   }
+  },
+  {
+   "selector": ".button.is-icon.variant-blue-dark-large",
+   "breakpoint": "small",
+   "properties": {
+    "font-size": "1.125rem"
+   }
+  },
+  {
+   "selector": ".section_define.variant-gold-dark .text-subheading.text-color-blue--dark, .section_define.variant-gold-dark .section_define-h2",
+   "properties": {
+    "color": {
+     "id": "variable-4ad96dad-daa6-a794-d562-935f68760789"
+    }
+   }
+  },
+  {
+   "selector": ".section_define.variant-coal-dark .text-subheading.text-color-blue--dark, .section_define.variant-coal-dark .section_define-h2",
+   "properties": {
+    "color": {
+     "id": "variable-0c7c8627-9ccf-c757-c4a9-1d6c9577a924"
+    }
+   }
+  },
+  {
+   "selector": ".section_cta.variant-bg-2, .section_cta.variant-bg-2-without-subheading",
+   "properties": {
+    "background-image": "@img_6ab98d8daf6ccf6378b3db8c"
+   }
+  },
+  {
+   "selector": ".section_cta.variant-without-subheading .cta_content-text, .section_cta.variant-bg-2-without-subheading .cta_content-text",
+   "properties": {
+    "display": "none"
+   }
+  },
+  {
+   "selector": ".section_casestudyv2-wrapper.variant-gold-light .section_casestudyv2-card",
+   "properties": {
+    "background-color": {
+     "id": "variable-3e12692c-14d8-a74a-454c-935c5c3812ca"
+    }
+   }
+  },
+  {
+   "selector": ".faq-p.variant-white-light, .faq-p.variant-ivory",
+   "properties": {
+    "border-bottom-color": {
+     "id": "variable-09d8c7f9-2afb-ae7b-6869-4f666e659acd"
+    }
+   }
+  },
+  {
+   "selector": ".faq-p.variant-white-light .faq, .faq-p.variant-ivory .faq",
+   "properties": {
+    "color": {
+     "id": "variable-09d8c7f9-2afb-ae7b-6869-4f666e659acd"
+    }
+   }
+  }
+ ]
+}

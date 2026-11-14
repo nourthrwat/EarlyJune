@@ -1,0 +1,29 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import {getCollection, render} from 'astro:content'
+
+export async function getStaticPaths() {
+  const pages = await getCollection('legal')
+  return pages.map((page) => ({params: {slug: page.id}, props: {page}}))
+}
+const {page} = Astro.props
+const {Content} = await render(page)
+---
+
+<BaseLayout title={page.data.seo?.title ?? page.data.title} description={page.data.seo?.description} smoothScroll>
+  <div class="page-wrapper">
+    <Header variant="base" logoColor="base" logoMobile="base" />
+    <div class="main-wrapper">
+      <section class="section_policy">
+        <div class="padding-global">
+          <div class="section_article-wrapper">
+            <div class="w-richtext text-rich"><Content /></div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <Footer />
+  </div>
+</BaseLayout>

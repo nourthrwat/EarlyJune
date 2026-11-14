@@ -1,0 +1,80 @@
+---
+// Blog category page. (The Webflow template for this URL was empty; this reuses the blog page sections.)
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import * as embeds from '@/lib/embeds'
+import {getCollection} from 'astro:content'
+
+export async function getStaticPaths() {
+  const categories = await getCollection('blogCategories')
+  return categories.map((category) => ({params: {slug: category.id}, props: {category}}))
+}
+const {category} = Astro.props
+const categories = await getCollection('blogCategories')
+const posts = (await getCollection('posts', (p) => !p.data.hidden && p.data.category?.id === category.id)).sort(
+  (a, b) => +b.data.publishedAt - +a.data.publishedAt,
+)
+---
+
+<BaseLayout title={`${category.data.name} | Blog`}>
+  <div class="page-wrapper">
+    <Header />
+    <div class="main-wrapper">
+      <section class="section_hero-blog">
+        <div class="container-medium padding-global">
+          <div class="section_hero-verticals-grid">
+            <div class="section_hero-blog-h1-wrapper">
+              <div class="text-subheading">BLOG</div>
+              <h1 class="h1-style-112px">{category.data.name}</h1>
+            </div>
+            <div class="hide-tablet"></div>
+          </div>
+        </div>
+      </section>
+      <section class="section_blogstags">
+        <div class="padding-global">
+          <div class="section_blogstags-wrapper">
+            <a href="/blog" class="section_blogstags-link">All</a>
+            <div class="w-dyn-list">
+              <div role="list" class="w-dyn-items section_blogstags-wrapper">
+                {categories.map((c) => (
+                  <div role="listitem" class="w-dyn-item">
+                    <a href={`/blog-categories/${c.id}`} class={`section_blogstags-link${c.id === category.id ? ' w--current' : ''}`}>{c.data.name}</a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_articles">
+        <div class="padding-global">
+          <div class="container-large">
+            <div>
+              <p class="text-weight-medium text-style-allcaps">latest articles</p>
+            </div>
+          </div>
+          <div class="w-dyn-list section_articles-wrapper">
+            <div role="list" class="w-dyn-items">
+              {posts.map((item) => (
+                <div role="listitem" class="w-dyn-item">
+                  <a href={`/post/${item.id}`} class="w-inline-block section_articles-link">
+                    <div class="section_articles-link-wrapper">
+                      <div>{item.data.title}</div>
+                    </div>
+                    <div class="section_articles-link-arrow">
+                      <div class="w-embed icon-embed-xsmall"><Fragment set:html={embeds.arrowSmall} /></div>
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
+            {posts.length === 0 && <div class="w-dyn-empty"><div>No items found.</div></div>}
+          </div>
+        </div>
+      </section>
+    </div>
+    <Footer />
+  </div>
+</BaseLayout>

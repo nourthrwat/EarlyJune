@@ -1,0 +1,162 @@
+{
+ "_note": "Webflow ids \u2192 Astro routes, components, variant slugs and embed keys. Used by scripts/webflow-tree-to-astro.mjs.",
+ "pages": {
+  "6ab98d8daf6ccf6378b3daa6": "/",
+  "6ab98d8daf6ccf6378b3dacc": "/our-work",
+  "6ab98d8daf6ccf6378b3dac9": "/blog",
+  "6ab98d8daf6ccf6378b3dac7": "/audit",
+  "6ab98d8daf6ccf6378b3dac6": "/careers",
+  "6ab98d8daf6ccf6378b3dac3": "/about-us",
+  "6ab98d8daf6ccf6378b3dab7": "/verticals",
+  "6ab98d8daf6ccf6378b3dac1": "/verticals/financial-services",
+  "6ab98d8daf6ccf6378b3dabe": "/verticals/e-commerce",
+  "6ab98d8daf6ccf6378b3daba": "/verticals/healthcare",
+  "6ab98d8daf6ccf6378b3dab4": "/services",
+  "6ab98d8daf6ccf6378b3daa8": "/404"
+ },
+ "components": {
+  "791ab381-cd87-ee8d-daf6-0a1a730100cf": {
+   "name": "Header",
+   "props": {
+    "098d3f4e-12cc-0edc-c7fe-08300673e27c": "variant",
+    "bdf8e0c4-fba6-c5a1-aeaa-511a47fcb653": "logoColor",
+    "17a10a2d-2307-b8ea-4a8b-4d5a0b6e26e2": "logoMobile"
+   }
+  },
+  "88d08ac1-b004-e4ef-a53c-e078eafd2f6b": {
+   "name": "Footer",
+   "props": {}
+  },
+  "d36a88a9-0b45-2553-76ef-3200b3336cad": {
+   "name": "GlobalStyles",
+   "skip": true,
+   "props": {}
+  },
+  "8d5f2736-f4f1-9996-f942-3cb0aba80bca": {
+   "name": "Lenis",
+   "skip": true,
+   "props": {}
+  },
+  "98d4f39a-c2d4-a956-a258-35018af38aae": {
+   "name": "Button",
+   "props": {
+    "a4375503-3a4c-fbea-283f-2684add54e72": "variant",
+    "dac02988-971b-9591-d134-8622d6e1cd28": "href",
+    "2b3c212c-97c6-ab38-735a-83ab95016eb6": "text"
+   }
+  },
+  "4b67b4b7-6865-894d-b807-82fbaae2da76": {
+   "name": "ButtonIcon",
+   "props": {
+    "b51bb5e8-cb6b-0ef7-1095-912f456cd6fe": "variant",
+    "ec3e5485-b778-dc40-157e-b0868a1d9b81": "href",
+    "662fa150-692f-b64d-b276-f9b20e41f4dc": "text"
+   }
+  },
+  "50fa2009-8671-212f-774b-49b553f808b5": {
+   "name": "SectionQuote",
+   "props": {
+    "f7fd1bc6-b5c1-8408-5efd-ec4fa364a1aa": "quote",
+    "3c7adff3-0b08-9a4c-3c94-9bd12bc33be9": "photo",
+    "0051c1a7-ee5d-64d1-e9bf-461685298205": "name",
+    "9fd436d5-e87a-5663-ca29-e47f10b0e311": "title"
+   }
+  },
+  "64ddc951-9018-bfda-5ccf-b09bb0162b5e": {
+   "name": "CaseStudyCard",
+   "props": {
+    "6e4d2f77-0ca6-9984-08cb-aa46649281ac": "variant",
+    "8dbf4c7b-e69c-c04e-422d-18397b76fa29": "eyebrow",
+    "81ced24f-a805-dad0-e77d-7c85aea1034f": "title",
+    "18352969-cdb2-1fea-35e4-bffbe409d0f3": "description",
+    "5e7b5a20-91c5-56e0-6086-7f42adab20fd": "image",
+    "348ea649-472e-3e93-119b-8fe94b3807bb": "imageMobile",
+    "c08914a0-c46f-2fb6-6855-82d1f9348563": "buttonVariant",
+    "633361c6-0c1b-06b0-08ec-2de3cdd9c53c": "buttonHref",
+    "c5cc40ff-8409-2e3e-1791-b67e93897d6e": "buttonText"
+   }
+  },
+  "a24f2615-eae3-5d1f-bb1d-62f6c1cae770": {
+   "name": "SectionFaq",
+   "props": {}
+  },
+  "5f663119-5aaa-761a-b2f8-694526d76c39": {
+   "name": "SectionDefine",
+   "props": {
+    "4b4d9933-c8aa-8e35-5b76-c4234f47d129": "variant",
+    "6267f56e-2d97-bf30-85a6-ba6ea0a313a2": "eyebrow",
+    "9db5395e-b02c-1e8b-1c71-7b9a51fffdf7": "title",
+    "2e216ce5-f1f8-71c8-3dd1-fca32617caa8": "text"
+   }
+  },
+  "91e33aaf-f89f-4c04-e444-61e6e1512a7a": {
+   "name": "SectionCta",
+   "props": {
+    "94385ae8-3441-642d-5f9a-963cb0b535a5": "title",
+    "52978ca5-6fef-a5fd-1fa4-b096c89278e4": "buttonVariant",
+    "741ad351-b7c5-4b77-9392-1990ed5bd35f": "buttonHref",
+    "07137582-8371-e16f-0e7f-c2782004493f": "buttonText"
+   }
+  },
+  "7b36500b-782b-b240-00e0-76304db35be2": {
+   "name": "Faq",
+   "props": {
+    "f602bbc1-0966-9ea2-6ddc-e3e0e7136e75": "variant",
+    "762e218b-dafb-3e36-a6b7-d584720ac223": "question",
+    "7ef2c49d-2895-af72-1817-c9696e0c56b4": "answer"
+   }
+  },
+  "c95d5cf9-ea45-710f-52e5-2e5ccbb4697c": {
+   "name": "SectionCtaBlue",
+   "props": {
+    "692b798e-e4a5-f716-e17d-349290ff1927": "variant",
+    "a891eff8-b0c8-437f-a7e0-a3fcbf735d0e": "title",
+    "b0a1519f-92f4-d6da-a2f0-1195675f3642": "text",
+    "ee67028b-48d7-12dd-ff78-2b475390a283": "buttonVariant",
+    "14f9dc4d-54e3-ff6f-878d-9ac15a8faf92": "buttonHref",
+    "b6fb57fb-db44-5e05-02c9-477ac37cd512": "buttonText"
+   }
+  },
+  "9930a64a-0b5f-a732-082a-08964b6f2238": {
+   "name": "NavbarLogoLink",
+   "props": {
+    "4eee8eb5-ec86-1ad4-5a86-a50b24a1a948": "variant"
+   }
+  },
+  "603de8f9-ebf6-53f6-e742-cd3d8f0f1695": {
+   "name": "FooterLogo",
+   "props": {}
+  }
+ },
+ "variants": {
+  "07dde6ea-3e41-f2d2-b537-f4bb9647bb02": "white-light",
+  "05ec3761-cf96-aef9-bc62-c5a10d78e020": "soild",
+  "e6f94097-c810-d352-63d2-945117bbf0f9": "white",
+  "d6188056-3dc7-650f-0b3e-bb3fd057ab78": "black",
+  "335b27a9-b22e-ae21-885e-a3ee5275f988": "black-soild",
+  "d22ae068-99d3-7c2a-5b91-dc55be5fae61": "white-soild",
+  "b12b26bd-ebfd-57b1-3661-21dd56dcb1a1": "blue-dark-icon",
+  "cae54f63-272a-d8cc-65a4-e5022414aac5": "blue-dark-large",
+  "c9c98a93-a321-23d2-97f4-05da273146d0": "gold-dark",
+  "151cc870-cf5a-f20f-e854-d3f298268cb9": "green",
+  "6c3e2574-8b19-f294-9c59-5899a78d52d6": "white-light",
+  "b5a414e8-0ecc-82e6-4a05-3c526b432f00": "gold-light",
+  "95615dd0-8eb3-3763-3f20-3da1332c05e2": "gold-dark",
+  "5dbcb62a-887f-6b49-da37-340b84aede8a": "coal-dark",
+  "83d4dbdf-46a9-f8ab-193f-91131d0ff8c0": "white-light",
+  "ca5a1aa6-d033-145e-1897-bfd07959f4ba": "ivory",
+  "46d6e9ea-287d-d226-e83d-a99ba1692e0c": "bg-2",
+  "a0128731-33ba-0f86-27a4-4a37f283d6d5": "bg-2-without-subheading",
+  "3902fc82-eaa2-1da9-1b48-88dca2da8386": "without-subheading",
+  "base": "base"
+ },
+ "embeds": {
+  "f3a02acb-065d-964a-04aa-8656bc411aa7": "sayHiPill",
+  "f38f5992-10e6-efb7-1f2f-803cc411c2ae": "arrowSmall",
+  "34afd4d2-b12a-bcec-34f7-361ae80f85e0": "arrowCircle",
+  "f4edb059-ee82-0a2e-a3c4-1d8954906731": "loopKeyframes",
+  "e7692eed-4add-e8fa-3bee-db3ca24f06aa": "sliderDots",
+  "5220fd3b-eacb-7574-ca4b-aba617417340": "channelsPanels",
+  "d034ee66-a1a4-f33c-6ca2-3691ad16a948": "arrowSmall"
+ }
+}

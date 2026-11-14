@@ -1,0 +1,55 @@
+---
+import {asset} from '@/lib/assets'
+// Webflow component "Footer". Edit the link lists below to change footer links.
+import FooterLogo from './FooterLogo.astro'
+const company = [
+  {text: 'About us', href: '/about-us'},
+  {text: 'Careers', href: '/careers'},
+  {text: 'Contact', href: '/audit'},
+  {text: 'Privacy Policy', href: '/legal-page/privacy-policy'},
+]
+const industries = [
+  {text: 'Healthcare', href: '/verticals/healthcare'},
+  {text: 'E-commerce', href: '/verticals/e-commerce'},
+  {text: 'Financial Services', href: '/verticals/financial-services'},
+]
+const socials = [
+  {href: 'https://www.linkedin.com/company/early-june-growth/', icon: asset('6ab98d8daf6ccf6378b3db1e'), label: 'LinkedIn'},
+  {href: 'mailto:jan@earlyjune.com', icon: asset('6ab98d8daf6ccf6378b3db1d'), label: 'Email'},
+]
+---
+<div class="footer_section">
+  <div class="padding-global">
+    <div class="container-medium">
+      <div class="footer_content-wrapper">
+        <div class="footer_content">
+          <div class="footer_content-links">
+            {[['Company', company], ['Industries', industries]].map(([heading, links]) => (
+              <div class="footer_content-links-list">
+                <div class="footer_content-links-heading">
+                  <div class="subheading-small text-color-gold footer">{heading}</div>
+                </div>
+                {(links as typeof company).map((l) => (
+                  <a href={l.href} class="footer_content-link text-color-ivory w-inline-block">
+                    <div class="button-text footer">{l.text}</div>
+                  </a>
+                ))}
+              </div>
+            ))}
+          </div>
+          <div class="hide-mobile-portrait"><FooterLogo /></div>
+        </div>
+        <div class="footer_section-wrapper">
+          <div class="footer_socials">
+            {socials.map((s) => (
+              <a href={s.href} class="footer_socials-link w-inline-block" aria-label={s.label} target={s.href.startsWith('http') ? '_blank' : undefined} rel="noopener">
+                <img src={s.icon} alt="" loading="lazy" class="footer_socials-link-img" />
+              </a>
+            ))}
+          </div>
+          <div class="hide-desktop"><FooterLogo /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

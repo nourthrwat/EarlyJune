@@ -1,0 +1,19 @@
+---
+import {asset} from '@/lib/assets'
+// Webflow component "FAQ" (one accordion row). Variants: base | white-light | ivory
+interface Props { variant?: string; question?: string; answer?: string }
+const {variant = 'base', question = '', answer = ''} = Astro.props
+---
+<div class:list={['faq-p w-dropdown', variant !== 'base' && `variant-${variant}`]} data-faq>
+  <div class="faq w-dropdown-toggle" role="button" tabindex="0" aria-expanded="false">
+    <div class="toggle-text">{question}</div>
+    <div class="faq-icon-wrapper">
+      <img src={asset('6ab98d8daf6ccf6378b3db42')} alt="" loading="lazy" class="faq-icon" />
+    </div>
+  </div>
+  <nav class="faq-body w-dropdown-list">
+    <div class="faq-body-cont">
+      <p class="faq-answer">{answer}</p>
+    </div>
+  </nav>
+</div>

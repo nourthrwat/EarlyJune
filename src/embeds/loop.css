@@ -1,0 +1,3 @@
+@keyframes loop-move-left {
+  to {transform: translateX(-100%);}
+}

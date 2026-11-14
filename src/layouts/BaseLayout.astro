@@ -1,0 +1,59 @@
+---
+// Every page uses this layout: <head>, global CSS and the site-wide scripts that Webflow added.
+import '@/styles/base.css'
+import '@/styles/webflow.css'
+import '@/styles/global-styles.css'
+import '@/styles/site.css'
+
+interface Props {
+  title?: string
+  description?: string
+  image?: string
+  /** Lenis smooth scrolling (Webflow had it on the post and legal templates only) */
+  smoothScroll?: boolean
+  noindex?: boolean
+}
+const {title = 'Early June', description, image, smoothScroll = false, noindex = false} = Astro.props
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/', Astro.site)
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    {image && <meta property="og:image" content={image} />}
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <!-- Client-First fluid font size (Webflow "fluid_responsive" embed, verbatim) -->
+    <style is:inline>
+      html { font-size: clamp(1rem, calc(-0.0006236080178174674rem + 1.111804008908686vw), 1.375rem); }
+      @media screen and (max-width:1440px) { html { font-size: calc(-0.0006236080178174674rem + 1.111804008908686vw); } }
+      @media screen and (max-width:991px) { html { font-size: calc(0.0012556053811660917rem + 2.0807174887892375vw); } }
+      @media screen and (max-width:768px) { html { font-size: calc(-0.5360000000000342rem + 3.2000000000000712vw); } }
+      @media screen and (max-width:767px) { html { font-size: calc(0.0010050251256281673rem + 2.814070351758794vw); } }
+      @media screen and (max-width:568px) { html { font-size: calc(-0.0019775280898881586rem + 2.822471910112361vw); } }
+      @media screen and (max-width:479px) { html { font-size: calc(0.0008988764044947084rem + 4.098876404494381vw); } }
+      @media screen and (max-width:390px) { html { font-size: calc(-0.002570694087403599rem + 4.113110539845758vw); } }
+    </style>
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+    <script>
+      import {initSite} from '@/scripts/site'
+      initSite()
+    </script>
+    {smoothScroll && (
+      <script>
+        import {initSmoothScroll} from '@/scripts/smooth-scroll'
+        initSmoothScroll()
+      </script>
+    )}
+  </body>
+</html>

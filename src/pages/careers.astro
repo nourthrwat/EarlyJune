@@ -1,0 +1,69 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ButtonIcon from '@/components/ButtonIcon.astro'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+---
+
+<BaseLayout title="Careers">
+  <div class="page-wrapper">
+    <Header variant="base" logoColor="base" logoMobile="base" />
+    <div class="main-wrapper">
+      <section class="section_hero-career">
+        <div class="container-medium">
+          <div class="section_hero-verticals-grid">
+            <div class="padding-global">
+              <div class="section_hero-career-h1-wrapper">
+                <div class="text-subheading">
+                  Careers
+                </div>
+                <h1 class="h1-style-112px">
+                  Our hands-on approach makes us different.
+                </h1>
+              </div>
+            </div>
+            <div class="hide-tablet"></div>
+          </div>
+        </div>
+      </section>
+      <section class="section_joinus">
+        <div class="padding-global is-height-100">
+          <div class="padding-section-small is-height-100">
+            <div class="container-large is-height-100">
+              <div class="section_joinus-grid">
+                <div class="section_joinus-grid-left">
+                  <h2 class="section_qoute-h2">
+                    Join us!
+                  </h2>
+                </div>
+                <div class="section_joinus-grid-right">
+                  <p class="text-size-medium">
+                    Our team is client-focused and data-driven. We pride ourselves on the human connections we make as we help brands grow.
+                    <br />
+                    <br />
+                    If you're ready to help our clients get the most from their marketing, we'd love to have you on board.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_ctaorange">
+        <div class="padding-global">
+          <div class="container-medium">
+            <div class="section_ctaorange-wrapper">
+              <h2 class="section_ctaorange-title">
+                Want to learn more about what it means to join Early June? Drop us a line.
+              </h2>
+              <div class="button-group">
+                <ButtonIcon variant="gold-dark" text="Say hi" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <Footer />
+  </div>
+</BaseLayout>

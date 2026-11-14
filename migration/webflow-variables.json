@@ -1,0 +1,32 @@
+{
+  "_source": "Webflow Variables, site 'Copy of Early June'. Modes: base (desktop), Tablet (≤991px), Mobile (L) (≤767px).",
+  "variables": [
+    {"id": "variable-0c7c8627-9ccf-c757-c4a9-1d6c9577a924", "cssName": "--colors--coal-dark", "base": "#1e1e1e"},
+    {"id": "variable-486b7e13-e29b-fc76-69af-ce5b93950a44", "cssName": "--colors--coal", "base": "#2c2c2c"},
+    {"id": "variable-6b417f23-819f-a4c6-da84-428ae73e35f6", "cssName": "--colors--blue-deep", "base": "#015e68"},
+    {"id": "variable-7cd2a57e-6f21-74f7-6ce6-096306cecf3e", "cssName": "--colors--blue-dark", "base": "#32a1ac"},
+    {"id": "variable-d7303d1f-a0fe-95aa-3774-4d678149f5fc", "cssName": "--colors--blue", "base": "#8ddde5"},
+    {"id": "variable-b1aba92f-9457-0d1c-1043-ef8e852e47b2", "cssName": "--colors--blue-light", "base": "#c6eef2"},
+    {"id": "variable-f20b3953-12af-dfcc-03fa-3bd5c8a144bc", "cssName": "--colors--ivory", "base": "#f4f1dc"},
+    {"id": "variable-09d8c7f9-2afb-ae7b-6869-4f666e659acd", "cssName": "--colors--light", "base": "#fefdf5"},
+    {"id": "variable-7c340a38-4440-2218-7fab-76fb9540b876", "cssName": "--colors--white", "base": "white"},
+    {"id": "variable-c34e2006-996c-8b3c-c2d1-5cd2cb19352f", "cssName": "--colors--green", "base": "#35782c"},
+    {"id": "variable-4924cf4f-0960-edd6-6652-a457534942fb", "cssName": "--colors--green-light", "base": "#7cac6b"},
+    {"id": "variable-14c74690-0a11-e3f4-1bf3-4db6ee5bc14c", "cssName": "--colors--green-dark", "base": "#1b3e0e"},
+    {"id": "variable-5121e349-ea31-95e7-bbc7-3428dde916cf", "cssName": "--colors--green-dark-2", "base": "#06211a"},
+    {"id": "variable-c6404359-1e2b-efd7-e381-d00d3d554d24", "cssName": "--colors--gold", "base": "#ffc852"},
+    {"id": "variable-3e12692c-14d8-a74a-454c-935c5c3812ca", "cssName": "--colors--gold-light", "base": "#ffe9ba"},
+    {"id": "variable-4ad96dad-daa6-a794-d562-935f68760789", "cssName": "--colors--gold-dark", "base": "#e19a01"},
+    {"id": "variable-ec8a58f0-fd9c-1423-3a17-a0c4962e502a", "cssName": "--colors--red", "base": "#ff6c5c"},
+    {"id": "variable-54acea0e-3a1d-1090-cbe5-752e91e1bc4d", "cssName": "--colors--rose", "base": "#ffa69d"},
+    {"id": "variable-1209ef69-61af-8367-fd35-52eefc31dd07", "cssName": "--colors--red-light", "base": "#ffb6ae"},
+    {"id": "variable-ff9cb8a7-978d-528e-4494-b935471dfca4", "cssName": "--_sizes---padding-globle", "base": "1.5rem", "medium": "1.5rem", "small": "1rem"}
+  ],
+  "fonts": [
+    {"family": "Reckless Condensed Trial", "weight": 400, "style": "italic", "url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3dafb_RecklessCondensedS-TRIAL-RegularItalic.woff2", "format": "woff2"},
+    {"family": "Reckless Condensed Trial", "weight": 400, "style": "normal", "url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db1f_RecklessCondensedS-TRIAL-Regular.woff2", "format": "woff2"},
+    {"family": "Reckless Condensed", "weight": 600, "style": "normal", "url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3daf9_RecklessCondensedS-SemiBold.woff", "format": "woff"},
+    {"family": "Reckless Condensed", "weight": 500, "style": "italic", "url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3daf8_RecklessStandardM-MediumItalic.woff", "format": "woff"},
+    {"family": "Work Sans", "weight": "100 900", "style": "normal", "url": "https://cdn.prod.website-files.com/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3dafa_WorkSans-VariableFont_wght.ttf", "format": "truetype"}
+  ]
+}

@@ -1,0 +1,186 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ButtonIcon from '@/components/ButtonIcon.astro'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import {getCollection, getEntries} from 'astro:content'
+import {marked} from 'marked'
+
+export async function getStaticPaths() {
+  const studies = await getCollection('caseStudies')
+  return studies.map((study) => ({params: {slug: study.id}, props: {study}}))
+}
+const {study} = Astro.props
+const d = study.data
+const tags = await getEntries(d.tags)
+---
+
+<BaseLayout title={d.seo?.title ?? d.title} description={d.seo?.description ?? d.description} image={d.heroImage?.src}>
+  <div class="page-wrapper">
+    <Header variant="white-light" logoColor="white-light" logoMobile="white-light" />
+    <div class="main-wrapper">
+      <section class="section_hero-casestudy">
+        <div class="padding-global">
+          <div class="container-medium">
+            <div class="section_hero-casestudy-grid">
+              <div class="section_hero-casestudy-content-wrrapper">
+                <div>
+                  <div class="text-subheading text-color-ivory">
+                    Case sTUdy
+                  </div>
+                  <div class="spacer-small"></div>
+                  <h1 class="h1-style-80px text-color-ivory">{d.headline ?? d.title}</h1>
+                </div>
+                <div class="w-dyn-list"><!-- CMS LIST ea0a8700-2c9a-44f4-bcb5-c48dc3839f5c -->
+                  <div role="list" class="w-dyn-items section_hero-casestudy-tags">
+                    {tags.map((t) => (
+                      <div role="listitem" class="w-dyn-item">
+                        <div class="section_hero-casestudy-tag">{t.data.name}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div class="hide-tablet"></div>
+            </div>
+          </div>
+        </div>
+        <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db61_image%2095%20(2).png" alt="" loading="lazy" class="section_hero-casestudy-hero-image" />
+      </section>
+      <section class="section_casestudybg">
+        <img src={d.heroImage?.src} alt={d.heroImage?.alt ?? ''} loading="lazy" class="section_casestudy-image hide-tablet" />
+        <img src={(d.heroImageMobile ?? d.heroImage)?.src} alt={(d.heroImageMobile ?? d.heroImage)?.alt ?? ''} loading="lazy" class="section_casestudy-image is-mobile" />
+      </section>
+      <section class="section_challenge">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="section_challenge-content-wrapper">
+              <h2 class="section_qoute-h2">
+                Challenge
+              </h2>
+              <div class="section_challenge-grid">
+                <div class="section_challenge-col-left"></div>
+                <div class="section_challenge-col-right">
+                  <div class="w-richtext text-rich-text-case" set:html={marked.parse(d.challenge ?? '')} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_casestudyvideo">
+        <div class="padding-global">
+          <div class="section_casestudyvideo-container">
+            <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db63_image%2097.png" alt="" loading="lazy" class="section_casestudyvideo-video" />
+          </div>
+          <div class="section_casestudyvideo-bottom">
+            <div class="text-style-allcaps">
+              Video
+            </div>
+            <div>
+              The creative leaned into what patients worry about most.
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_casestudyframe">
+        <div class="padding-global">
+          <div class="section_casestudyframe-container">
+            <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db64_Screenshot%202026-08-26%20at%2023.20.59%201.png" alt="" loading="lazy" class="section_casestudyvideo-video" />
+          </div>
+          <div class="section_casestudyframe-bottom">
+            <div class="text-style-allcaps">
+              Instagram · Reels · Native
+            </div>
+            <div>
+              Launch flight · Q3
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_casestudyframe is-blue">
+        <div class="padding-global">
+          <div class="section_casestudyframe-container">
+            <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db65_Screenshot%202026-08-26%20at%2023.21.15%201.png" alt="" loading="lazy" class="section_casestudyvideo-video" />
+          </div>
+          <div class="section_casestudyframe-bottom">
+            <div class="text-style-allcaps">
+              Instagram · Reels · Native
+            </div>
+            <div>
+              Launch flight · Q3
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_casestudyframe is-red">
+        <div class="padding-global">
+          <div class="section_casestudyframe-container">
+            <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db66_Screenshot%202026-08-26%20at%2023.21.27%201.png" alt="" loading="lazy" class="section_casestudyvideo-video" />
+          </div>
+          <div class="section_casestudyframe-bottom">
+            <div class="text-style-allcaps">
+              Instagram · Feed · Native · 1:1
+            </div>
+            <div>
+              Retargeting · always-on
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_solution">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="section_challenge-content-wrapper">
+              <h2 class="section_solution-h2">
+                Solution
+              </h2>
+              <div class="section_challenge-grid">
+                <div class="section_challenge-col-left"></div>
+                <div class="section_challenge-col-right">
+                  <div class="w-richtext text-rich-text-case" set:html={marked.parse(d.solution ?? '')} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_results">
+        <div class="padding-global">
+          <div class="padding-section-t4-b4">
+            <div class="container-medium">
+              <div class="section_results-wrapper">
+                <h2 class="section_results-title">
+                  Results
+                </h2>
+                <div class="section_results-numbers-wrapper">
+                  {d.results.map((r) => (
+                    <div class="section_results-numbers-card">
+                      <div class="section_results-number-title">{r.number}</div>
+                      <div>{r.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_cta-casestudy">
+        <div class="padding-global">
+          <div class="container-medium">
+            <div class="section_ctaorange-wrapper">
+              <h2 class="section_cta-casestudy-title">
+                Audit your channel mix to see what’s working, and what’s not.
+              </h2>
+              <div class="button-group">
+                <ButtonIcon variant="gold-dark" href="/audit" text="Request an audit" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <Footer />
+  </div>
+</BaseLayout>

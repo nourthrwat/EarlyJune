@@ -1,0 +1,26 @@
+---
+// Webflow component "Section Define". Variants: base | gold-dark | coal-dark
+interface Props { variant?: string; eyebrow?: string; title?: string; text?: string }
+const {
+  variant = 'base',
+  eyebrow = 'Defining success',
+  title = 'Founder-led growth audits.',
+  text = 'Early June’s founder-led, hands-on approach to auditing your social channels will expose excess spend and content gaps. Clients can expect fast turnaround times on content strategies that lower CAC while optimizing spend.',
+} = Astro.props
+---
+<section class:list={['section_define', variant !== 'base' && `variant-${variant}`]}>
+  <div class="padding-global is-height-100">
+    <div class="container-large is-height-100">
+      <div class="section_define-grid">
+        <div class="section_define-grid-col">
+          <div class="text-subheading text-color-blue--dark">{eyebrow}</div>
+          <div class="spacer-small"></div>
+          <h2 class="section_define-h2">{title}</h2>
+        </div>
+        <div class="section_define-grid-col">
+          <p class="text-size-medium">{text}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

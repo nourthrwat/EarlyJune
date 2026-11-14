@@ -1,0 +1,76 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import SectionCtaBlue from '@/components/SectionCtaBlue.astro'
+import {getCollection} from 'astro:content'
+const team = await getCollection('team')
+---
+
+<BaseLayout title="About us">
+  <div class="page-wrapper">
+    <Header variant="white-light" logoColor="white-light" logoMobile="white-light" />
+    <div class="main-wrapper">
+      <section class="section_hero-about">
+        <div class="container-large">
+          <div class="section_hero-verticals-grid">
+            <div class="padding-global">
+              <div class="padding-section-t7-84-b7-84">
+                <div class="section_hero-services-content">
+                  <div class="text-subheading text-color-ivory">
+                    About us
+                  </div>
+                  <h1 class="h1-style-112px text-color-ivory">
+                    More special-ops. Less infantry.
+                  </h1>
+                  <div class="max-width-medium">
+                    <div class="body-text text-color-ivory">
+                      It’s more important than ever to be nimble, agile, effective and experienced. Work directly with Early June directors and experts who each bring decades of industry knowledge to your marketing team.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hide-tablet"></div>
+          </div>
+        </div>
+      </section>
+      <section class="section_video">
+        <div class="padding-global">
+          <div class="padding-section-small">
+            <div class="container-medium">
+              <div class="section_video-wrapper">
+                <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db5b_premium_photo-1723802513538-3b1aa00dc5bc%201.avif" alt="" loading="lazy" class="section_video-video" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_team">
+        <div class="padding-global">
+          <div class="padding-section-large">
+            <div class="container-large">
+              <div class="w-dyn-list"><!-- CMS LIST 0aff0345-023a-6437-5965-84a557bd9858 -->
+                <div role="list" class="w-dyn-items section_team-grid">
+                  {team.map((item) => (
+                    <div role="listitem" class="w-dyn-item">
+                      <div class="section_team-col">
+                        <img src={item.data.photo?.src} alt={item.data.photo?.alt || item.data.name} loading="lazy" class="section_team-image" />
+                        <div class="section_team-bottom">
+                          <h4 class="section_team-name">{item.data.name}</h4>
+                          <div class="section_team-title">{item.data.jobTitle}</div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <SectionCtaBlue variant="without-subheading" title="Ready to get growing?" buttonText="Say hi" />
+    </div>
+    <Footer />
+  </div>
+</BaseLayout>

@@ -1,0 +1,114 @@
+/* Webflow's built-in base styles (normalize + the w-* classes Webflow adds to every published site).
+   Loaded BEFORE webflow.css so the site's own styles win, exactly like on Webflow. */
+
+html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: sans-serif; height: 100%; }
+body { margin: 0; min-height: 100%; background-color: #fff; font-family: Arial, sans-serif; font-size: 14px; line-height: 20px; color: #333; }
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; }
+audio, canvas, progress, video { display: inline-block; vertical-align: baseline; }
+[hidden], template { display: none; }
+a { background-color: transparent; }
+a:active, a:hover { outline: 0; }
+b, strong { font-weight: bold; }
+small { font-size: 80%; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+img { border: 0; max-width: 100%; vertical-align: middle; display: inline-block; }
+svg:not(:root) { overflow: hidden; }
+hr { box-sizing: content-box; height: 0; }
+pre { overflow: auto; }
+button, input, optgroup, select, textarea { color: inherit; font: inherit; margin: 0; }
+button { overflow: visible; }
+button, select { text-transform: none; }
+button, html input[type='button'], input[type='reset'] { -webkit-appearance: button; cursor: pointer; }
+button[disabled], html input[disabled] { cursor: default; }
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+input { line-height: normal; }
+input[type='checkbox'], input[type='radio'] { box-sizing: border-box; padding: 0; }
+textarea { overflow: auto; }
+table { border-collapse: collapse; border-spacing: 0; }
+td, th { padding: 0; }
+* { box-sizing: border-box; }
+html.w-mod-touch * { background-attachment: scroll !important; }
+
+h1, h2, h3, h4, h5, h6 { font-weight: bold; margin-bottom: 10px; }
+h1 { font-size: 38px; line-height: 44px; margin-top: 20px; }
+h2 { font-size: 32px; line-height: 36px; margin-top: 20px; }
+h3 { font-size: 24px; line-height: 30px; margin-top: 20px; }
+h4 { font-size: 18px; line-height: 24px; margin-top: 10px; }
+h5 { font-size: 14px; line-height: 20px; margin-top: 10px; }
+h6 { font-size: 12px; line-height: 18px; margin-top: 10px; }
+p { margin-top: 0; margin-bottom: 10px; }
+blockquote { margin: 0 0 10px 0; padding: 10px 20px; border-left: 5px solid #e2e2e2; font-size: 18px; line-height: 22px; }
+figure { margin: 0 0 10px 0; }
+figcaption { margin-top: 5px; text-align: center; }
+ul, ol { margin-top: 0; margin-bottom: 10px; padding-left: 40px; }
+label { display: block; margin-bottom: 5px; font-weight: bold; }
+
+.w-inline-block { max-width: 100%; display: inline-block; }
+.w-block { display: block; }
+.w-clearfix::before, .w-clearfix::after { content: ' '; display: table; grid-column-start: 1; grid-row-start: 1; grid-column-end: 2; grid-row-end: 2; }
+.w-clearfix::after { clear: both; }
+.w-hidden { display: none; }
+.w-button { display: inline-block; padding: 9px 15px; background-color: #3898ec; color: white; border: 0; line-height: inherit; text-decoration: none; cursor: pointer; border-radius: 0; }
+input.w-button { -webkit-appearance: button; }
+
+/* Embeds */
+.w-embed::before, .w-embed::after { content: ' '; display: table; grid-column-start: 1; grid-row-start: 1; grid-column-end: 2; grid-row-end: 2; }
+.w-embed::after { clear: both; }
+
+/* Rich text */
+.w-richtext::before, .w-richtext::after { content: ' '; display: table; grid-column-start: 1; grid-row-start: 1; grid-column-end: 2; grid-row-end: 2; }
+.w-richtext::after { clear: both; }
+.w-richtext ol, .w-richtext ul { overflow: hidden; }
+.w-richtext figure { position: relative; max-width: 60%; }
+.w-richtext figure img { width: 100%; }
+.w-richtext > :not(div):first-child, .w-richtext > div:first-child > :first-child { margin-top: 0 !important; }
+.w-richtext > :last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child { margin-bottom: 0 !important; }
+
+/* Forms */
+.w-form { margin: 0 0 15px; }
+.w-form-done { display: none; padding: 20px; text-align: center; background-color: #dddddd; }
+.w-form-fail { display: none; margin-top: 10px; padding: 10px; background-color: #ffdede; }
+.w-input, .w-select { display: block; width: 100%; height: 38px; padding: 8px 12px; margin-bottom: 10px; font-size: 14px; line-height: 1.42857143; color: #333333; vertical-align: middle; background-color: #ffffff; border: 1px solid #cccccc; }
+.w-input::placeholder, .w-select::placeholder { color: #999; }
+.w-input:focus, .w-select:focus { border-color: #3898ec; outline: 0; }
+textarea.w-input, textarea.w-select { height: auto; }
+
+/* CMS lists */
+.w-dyn-empty { padding: 10px; background-color: #dddddd; }
+.w-dyn-hide, .w-dyn-bind-empty { display: none !important; }
+
+/* Navbar */
+.w-nav { position: relative; background: #dddddd; z-index: 1000; }
+.w-nav::before, .w-nav::after { content: ' '; display: table; grid-column-start: 1; grid-row-start: 1; grid-column-end: 2; grid-row-end: 2; }
+.w-nav::after { clear: both; }
+.w-nav-brand { position: relative; float: left; text-decoration: none; color: #333333; }
+.w-nav-link { position: relative; display: inline-block; vertical-align: top; text-decoration: none; color: #222222; padding: 20px; text-align: left; margin-left: auto; margin-right: auto; }
+.w-nav-link.w--current { color: #0082f3; }
+.w-nav-menu { position: relative; float: right; }
+.w-nav-button { position: relative; float: right; padding: 18px; font-size: 24px; display: none; cursor: pointer; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); tap-highlight-color: rgba(0, 0, 0, 0); user-select: none; }
+.w-nav-button:focus { outline: 0; }
+.w-nav-button.w--open { background-color: #c8c8c8; color: white; }
+@media screen and (max-width: 991px) {
+  .w-nav[data-collapse='medium'] .w-nav-menu { display: none; }
+  .w-nav[data-collapse='medium'] .w-nav-button { display: block; }
+  .w-nav[data-collapse='medium'] .w-nav-menu.w--open { display: block; }
+}
+
+/* Dropdown (FAQ accordions) */
+.w-dropdown { display: inline-block; position: relative; text-align: left; margin-left: auto; margin-right: auto; z-index: 900; }
+.w-dropdown-btn, .w-dropdown-toggle, .w-dropdown-link { position: relative; vertical-align: top; text-decoration: none; color: #222222; padding: 20px; text-align: left; margin-left: auto; margin-right: auto; white-space: nowrap; }
+.w-dropdown-toggle { user-select: none; display: inline-block; cursor: pointer; padding-right: 40px; }
+.w-dropdown-toggle:focus { outline: 0; }
+.w-dropdown-list { position: absolute; background: #dddddd; display: none; min-width: 100%; }
+.w-dropdown-list.w--open { display: block; }
+
+/* Slider (only used inside a hidden block on the home page) */
+.w-slider { position: relative; height: 300px; text-align: center; background: #dddddd; clear: both; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+.w-slider-mask { position: relative; display: block; overflow: hidden; z-index: 1; left: 0; right: 0; height: 100%; white-space: nowrap; }
+.w-slide { position: relative; display: inline-block; vertical-align: top; width: 100%; height: 100%; white-space: normal; text-align: left; }
+.w-slider-nav { position: absolute; z-index: 2; top: auto; right: 0; bottom: 0; left: 0; margin: auto; padding-top: 10px; height: 40px; text-align: center; }
+.w-slider-arrow-left, .w-slider-arrow-right { position: absolute; width: 80px; top: 0; right: 0; bottom: 0; left: 0; margin: auto; cursor: pointer; overflow: hidden; color: white; font-size: 40px; user-select: none; }
+.w-slider-arrow-left { z-index: 3; right: auto; }
+.w-slider-arrow-right { z-index: 4; left: auto; }

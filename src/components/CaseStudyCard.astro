@@ -1,0 +1,32 @@
+---
+import {asset} from '@/lib/assets'
+// Webflow component "CaseStudy" (card). Variants: base (blue) | gold-light
+import ButtonIcon from './ButtonIcon.astro'
+interface Props {
+  variant?: string; eyebrow?: string; title?: string; description?: string
+  image?: string; imageMobile?: string; imageAlt?: string
+  buttonVariant?: string; buttonHref?: string; buttonText?: string
+}
+const {
+  variant = 'base', eyebrow = 'Case study', title = '', description = '',
+  image = asset('6ab98d8daf6ccf6378b3db43'),
+  imageMobile = asset('6ab98d8daf6ccf6378b3db44'),
+  imageAlt = '', buttonVariant = 'base', buttonHref = '#', buttonText = 'Learn more',
+} = Astro.props
+---
+<div class:list={['section_casestudyv2-wrapper', variant !== 'base' && `variant-${variant}`]}>
+  <div class="section_casestudyv2-card">
+    <div class="slider_slide-card-content">
+      <div class="slider_slide-card-content-text">
+        <div class="subheading-small">{eyebrow}</div>
+        <h2 class="heading-style-h1-casestudy">{title}</h2>
+        <div class="body-text text-color-coal-dark">{description}</div>
+      </div>
+      <ButtonIcon variant={buttonVariant} href={buttonHref} text={buttonText} />
+    </div>
+    <div class="section_casestudyv2-card-image-wrapper">
+      <img src={image} alt={imageAlt} loading="lazy" class="section_casestudyv2-card-image is-desktop" />
+      <img src={imageMobile} alt={imageAlt} loading="lazy" class="section_casestudyv2-card-image is-mobile" />
+    </div>
+  </div>
+</div>

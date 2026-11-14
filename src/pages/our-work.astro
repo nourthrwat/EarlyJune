@@ -1,0 +1,128 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import SectionCtaBlue from '@/components/SectionCtaBlue.astro'
+---
+
+<BaseLayout title="Our work">
+  <div class="page-wrapper">
+    <Header variant="base" logoColor="base" logoMobile="base" />
+    <div class="main-wrapper">
+      <section class="section_hero-ourwork">
+        <div class="container-large">
+          <div class="section_hero-verticals-grid">
+            <div class="padding-global">
+              <div class="padding-section-large">
+                <h1 class="h1-style-180px">
+                  The work, 
+                  <br />
+                  up front.
+                </h1>
+              </div>
+            </div>
+            <div class="hide-tablet"></div>
+          </div>
+        </div>
+      </section>
+      <section class="section_ourwork padding-section-small">
+        <div class="padding-global is-right">
+          <div class="container-large">
+            <a href="/case-study/hey-jane" class="w-inline-block section_ourwork-grid">
+              <div class="section_ourwork-grid-col padding-section-small">
+                <div class="text-subheading">
+                  Case study
+                </div>
+                <div class="spacer-medium"></div>
+                <h2 class="h1-style-112px text-weight-semibold">
+                  How Hey Jane stayed HIPAA-compliant, at scale.
+                </h2>
+                <div class="spacer-medium"></div>
+                <div class="section_ourwork-tags-wrapper">
+                  <div class="text_tag">
+                    SEM
+                  </div>
+                  <div class="text_tag">
+                    Media management
+                  </div>
+                  <div class="text_tag">
+                    Creative direction
+                  </div>
+                </div>
+              </div>
+              <div class="section_ourwork-grid-img-col">
+                <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db89_image%2095%20(3).avif" alt="How Hey Jane stayed HIPAA-compliant, at scale." loading="lazy" class="section_ourwork-grid-img" />
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="section_ourwork is-gold padding-section-small">
+        <div class="padding-global is-left">
+          <div class="container-large">
+            <a href="#" class="w-inline-block section_ourwork-grid is-gap">
+              <div class="section_ourwork-grid-img-col">
+                <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db8a_image%2095%20(5).png" alt="How Hey Jane stayed HIPAA-compliant, at scale." loading="lazy" class="section_ourwork-grid-img is-fill" />
+              </div>
+              <div class="section_ourwork-grid-col padding-section-small">
+                <div class="text-subheading">
+                  Case study
+                </div>
+                <div class="spacer-medium"></div>
+                <h2 class="h1-style-112px text-weight-semibold">
+                  How Vanta scaled to 20 countries
+                </h2>
+                <div class="spacer-medium"></div>
+                <div class="section_ourwork-tags-wrapper">
+                  <div class="text_tag">
+                    SEM
+                  </div>
+                  <div class="text_tag">
+                    Media management
+                  </div>
+                  <div class="text_tag">
+                    Creative direction
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="section_ourwork is-red padding-section-small">
+        <div class="padding-global is-right">
+          <div class="container-large">
+            <a href="#" class="w-inline-block section_ourwork-grid is-red">
+              <div class="section_ourwork-grid-col padding-section-small">
+                <div class="text-subheading">
+                  Case study
+                </div>
+                <div class="spacer-medium"></div>
+                <h2 class="h1-style-112px text-weight-semibold">
+                  How Domain Money doubled qualified leads with Early June
+                </h2>
+                <div class="spacer-medium"></div>
+                <div class="section_ourwork-tags-wrapper">
+                  <div class="text_tag">
+                    SEM
+                  </div>
+                  <div class="text_tag">
+                    Media management
+                  </div>
+                  <div class="text_tag">
+                    Creative direction
+                  </div>
+                </div>
+              </div>
+              <div class="section_ourwork-grid-img-col">
+                <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db8b_image%2096%20(3).png" alt="How Hey Jane stayed HIPAA-compliant, at scale." loading="lazy" class="section_ourwork-grid-img" />
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+      <SectionCtaBlue variant="bg-2-without-subheading" title={"Want results like this?\nRequest an audit."} buttonHref="/audit" buttonText="Say hi" />
+    </div>
+    <Footer />
+  </div>
+</BaseLayout>

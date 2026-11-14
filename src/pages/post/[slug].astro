@@ -1,0 +1,126 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ButtonIcon from '@/components/ButtonIcon.astro'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import * as embeds from '@/lib/embeds'
+import {getCollection, getEntry, render} from 'astro:content'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', (p) => !p.data.hidden)
+  return posts.map((post) => ({params: {slug: post.id}, props: {post}}))
+}
+const {post} = Astro.props
+const d = post.data
+const category = d.category ? await getEntry(d.category) : undefined
+const categories = await getCollection('blogCategories')
+const latest = (await getCollection('posts', (p) => !p.data.hidden && p.id !== post.id))
+  .sort((a, b) => +b.data.publishedAt - +a.data.publishedAt)
+  .slice(0, 5)
+const {Content} = await render(post)
+---
+
+<BaseLayout title={d.seo?.title ?? d.title} description={d.seo?.description ?? d.summary} image={d.mainImage?.src} smoothScroll>
+  <div class="page-wrapper">
+    <Header variant="base" logoColor="base" logoMobile="base" />
+    <div class="main-wrapper">
+      <section class="section_hero-article">
+        <div class="padding-global">
+          <div>
+            <div class="container-medium">
+              <div class="section_hero-article-wrapper">
+                <div class="section_hero-article-heading">
+                  <div class="text-subheading">
+                    BLOG
+                  </div>
+                  <div class="text-subheading">
+                    /
+                  </div>
+                  <div class="text-subheading">{category?.data.name}</div>
+                </div>
+                <h1 class="h1-style-112px">{d.title}</h1>
+                <div class="max-width-medium">
+                  <div class="body-text">{d.summary}</div>
+                </div>
+              </div>
+              <div class="section_hero-article-readtime">
+                <p>{d.readTime}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section_hero-article-overlat"></div>
+      </section>
+      <section class="section_blogstags">
+        <div class="padding-global">
+          <div class="section_blogstags-wrapper">
+            <a href="/blog" class="section_blogstags-link">
+              All
+            </a>
+            <div class="w-dyn-list"><!-- CMS LIST 4440e802-5195-40aa-8949-22220cb8e1f5 -->
+              <div role="list" class="w-dyn-items section_blogstags-wrapper">
+                {categories.map((c) => (
+                  <div role="listitem" class="w-dyn-item">
+                    <a href={`/blog-categories/${c.id}`} class={`section_blogstags-link${c.id === category?.id ? ' w--current' : ''}`}>{c.data.name}</a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_article">
+        <div class="padding-global">
+          <div class="section_article-wrapper">
+            <div class="w-richtext text-rich-text-blog"><Content /></div>
+          </div>
+        </div>
+      </section>
+      <section class="section_articles">
+        <div class="padding-global">
+          <div class="container-large">
+            <div>
+              <p class="text-weight-medium text-style-allcaps">
+                latest articles
+              </p>
+            </div>
+          </div>
+          <div class="w-dyn-list section_articles-wrapper"><!-- CMS LIST d034ee66-a1a4-f33c-6ca2-3691ad16a941 -->
+            <div role="list" class="w-dyn-items">
+              {latest.map((item) => (
+              <div role="listitem" class="w-dyn-item">
+                <a href={`/post/${item.id}`} class="w-inline-block section_articles-link">
+                  <div class="section_articles-link-wrapper">
+                    <div>{item.data.title}</div>
+                  </div>
+                  <div class="section_articles-link-arrow">
+                    <div class="w-embed icon-embed-xsmall"><Fragment set:html={embeds.arrowSmall} /></div>
+                  </div>
+                </a>
+              </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_cta-orange-v2">
+        <div class="padding-global">
+          <div class="section_cta-orange-v2-wrapper">
+            <h2 class="section_cta-orange-v2-title">
+              Turn this thinking into your next test
+            </h2>
+            <div class="spacer-medium"></div>
+            <div class="text-size-medium">
+              Bring us the challenge. We will help you frame the next move.
+            </div>
+            <div class="spacer-medium"></div>
+            <div>
+              <ButtonIcon variant="gold-dark" href="/audit" text="Request an audit" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <Footer />
+  </div>
+</BaseLayout>

@@ -1,0 +1,20 @@
+/* Hand-written additions on top of the generated Webflow CSS.
+   Keep this file small: use existing classes from webflow.css first (see /styleguide). */
+
+/* Site head custom code from Webflow */
+.navbar2_logo-link,
+.navbar2_menu-button,
+.menu-icon2_line-top,
+.menu-icon2_line-middle,
+.menu-icon2_line-bottom {
+  transition: all 0.15s ease !important;
+}
+
+/* FAQ accordion: closed by default, opened by src/scripts/site.ts */
+.faq-p .faq-body { height: 0; overflow: hidden; transition: height 0.3s ease; }
+
+/* Webflow hides the success/error blocks until a form is submitted */
+.w-form-done, .w-form-fail { display: none; }
+
+/* Hidden honeypot field for Netlify Forms */
+.form-honeypot { position: absolute; left: -9999px; }

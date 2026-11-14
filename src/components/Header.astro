@@ -1,0 +1,59 @@
+---
+// Webflow component "Header" (navbar). Variants: base | white-light (light text for dark heroes).
+import NavbarLogoLink from './NavbarLogoLink.astro'
+interface Props {
+  variant?: string
+  /** Logo colour inside the desktop menu */
+  logoColor?: string
+  /** Logo colour on tablet/mobile */
+  logoMobile?: string
+}
+const {variant = 'base', logoColor = 'base', logoMobile = 'base'} = Astro.props
+const left = [
+  {text: 'Our work', href: '/our-work'},
+  {text: 'Services', href: '/services'},
+  {text: 'Verticals', href: '/verticals'},
+]
+const right = [
+  {text: 'Careers', href: '/careers'},
+  {text: 'About us', href: '/about-us'},
+]
+const path = Astro.url.pathname.replace(/\.html$/, '')
+const current = (href: string) => (path === href || path.startsWith(href + '/') ? 'w--current' : '')
+---
+<div class:list={['fix-nav', variant !== 'base' && `variant-${variant}`]} data-wf--header--variant={variant}>
+  <div class="navbar2_component w-nav" data-collapse="medium" role="banner" fs-scrolldisable-element="smart-nav">
+    <div class="navbar2_container">
+      <div class="navbar2_menu-button-wrapper">
+        <div class="navbar2_menu-button w-nav-button" id="navbar2_menu-button" aria-label="menu" role="button" tabindex="0" aria-controls="navbar2-menu" aria-haspopup="menu" aria-expanded="false">
+          <div class="menu-icon2">
+            <div class="menu-icon2_line-top"></div>
+            <div class="menu-icon2_line-middle"><div class="menu-icon2_line-middle-inner"></div></div>
+            <div class="menu-icon2_line-bottom"></div>
+          </div>
+        </div>
+      </div>
+      <nav role="navigation" id="navbar2-menu" class="navbar2_menu is-page-height-tablet w-nav-menu">
+        <div class="navbar2_menu-wrapper">
+          <div class="navbar2_menu-col-links">
+            {left.map((l) => <a href={l.href} class:list={['navbar2_link w-nav-link', current(l.href)]}>{l.text}</a>)}
+          </div>
+          <div class="navbar2_menu-logo">
+            <NavbarLogoLink variant={logoColor} />
+          </div>
+          <div class="navbar2_menu-col-links">
+            {right.map((l) => <a href={l.href} class:list={['navbar2_link w-nav-link', current(l.href)]}>{l.text}</a>)}
+            <a href="/audit" class="button is-navbar2-button hide-tablet">Say hi</a>
+          </div>
+        </div>
+      </nav>
+      <div class="show-tablet is-center">
+        <NavbarLogoLink variant={logoMobile} />
+      </div>
+      <div class="navbar2_button-wrapper">
+        <a href="/audit" id="is-navbar2-button" class="button is-navbar2-button">Say hi</a>
+      </div>
+    </div>
+  </div>
+  <div class="navbar2_component-bg" id="navbar2_component-BG"></div>
+</div>

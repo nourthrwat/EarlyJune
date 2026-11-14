@@ -1,0 +1,98 @@
+---
+// Living style guide: the classes and components to reuse when adding or changing pages.
+// Not linked from the site and excluded from the sitemap.
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Header from '@/components/Header.astro'
+import Footer from '@/components/Footer.astro'
+import Button from '@/components/Button.astro'
+import ButtonIcon from '@/components/ButtonIcon.astro'
+import Faq from '@/components/Faq.astro'
+import SectionDefine from '@/components/SectionDefine.astro'
+import SectionCta from '@/components/SectionCta.astro'
+import SectionCtaBlue from '@/components/SectionCtaBlue.astro'
+import SectionQuote from '@/components/SectionQuote.astro'
+import CaseStudyCard from '@/components/CaseStudyCard.astro'
+
+const colors = ['coal-dark', 'coal', 'blue-deep', 'blue-dark', 'blue', 'blue-light', 'ivory', 'light', 'white', 'green', 'green-light', 'green-dark', 'green-dark-2', 'gold', 'gold-light', 'gold-dark', 'red', 'rose', 'red-light']
+const headings = ['H1-style-180px', 'h1-style-112px', 'h1-style-80px', 'heading-style-h1-large', 'heading-style-h1', 'heading-style-h2-96px', 'heading-style-h2']
+const text = ['text-subheading', 'subheading-small', 'body-text', 'text-size-medium', 'text-style-allcaps']
+const cls = (c: string) => c.toLowerCase()
+const box = 'display:flex;flex-direction:column;gap:1.5rem;padding:4rem 0;border-top:1px solid #0001'
+const label = 'font:12px/1.4 monospace;color:#777;margin:0'
+---
+
+<BaseLayout title="Style Guide" noindex>
+  <div class="page-wrapper">
+    <Header />
+    <main class="main-wrapper">
+      <div class="padding-global">
+        <div class="container-large">
+          <h1 class="h1-style-112px">Style guide</h1>
+          <p class="body-text">Reuse these classes and components. Colors are CSS variables in <code>src/styles/webflow.css</code>.</p>
+
+          <section style={box}>
+            <h2 class="heading-style-h2">Colors</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(9rem,1fr));gap:1rem">
+              {colors.map((c) => (
+                <div>
+                  <div style={`height:4rem;border-radius:.5rem;border:1px solid #0002;background:var(--colors--${c})`}></div>
+                  <p style={label}>--colors--{c}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section style={box}>
+            <h2 class="heading-style-h2">Headings</h2>
+            {headings.map((c) => (
+              <div>
+                <p style={label}>.{cls(c)}</p>
+                <div class={cls(c)}>Your boutique agency</div>
+              </div>
+            ))}
+          </section>
+
+          <section style={box}>
+            <h2 class="heading-style-h2">Text</h2>
+            {text.map((c) => (
+              <div>
+                <p style={label}>.{c}</p>
+                <div class={c}>Early June AI-powered deployments can attract, convert and retain your customers.</div>
+              </div>
+            ))}
+          </section>
+
+          <section style={box}>
+            <h2 class="heading-style-h2">Buttons</h2>
+            <p style={label}>&lt;Button variant="soild | white | black | black-soild | white-soild" /&gt;</p>
+            <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;background:var(--colors--blue-light);padding:1rem">
+              {['base', 'soild', 'white', 'black', 'black-soild', 'white-soild'].map((v) => <Button variant={v} text={v} />)}
+            </div>
+            <p style={label}>&lt;ButtonIcon variant="blue-dark-icon | blue-dark-large | gold-dark | green" /&gt;</p>
+            <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center">
+              {['base', 'blue-dark-icon', 'blue-dark-large', 'gold-dark', 'green'].map((v) => <ButtonIcon variant={v} text={v} />)}
+            </div>
+          </section>
+
+          <section style={box}>
+            <h2 class="heading-style-h2">FAQ</h2>
+            <p style={label}>&lt;Faq question="…" answer="…" variant="white-light | ivory" /&gt;</p>
+            <Faq question="What does an audit include?" answer="A line-by-line review of every ad account." />
+          </section>
+        </div>
+      </div>
+
+      <p style={`${label};padding:2rem`}>&lt;SectionDefine variant="gold-dark | coal-dark" /&gt;</p>
+      <SectionDefine />
+      <p style={`${label};padding:2rem`}>&lt;CaseStudyCard variant="gold-light" /&gt;</p>
+      <div class="padding-global"><div class="container-large"><CaseStudyCard title="Hey Jane" description="Helping a virtual clinic expand their reach." /></div></div>
+      <p style={`${label};padding:2rem`}>&lt;SectionQuote /&gt;</p>
+      <SectionQuote />
+      <p style={`${label};padding:2rem`}>&lt;SectionCta /&gt;</p>
+      <SectionCta />
+      <p style={`${label};padding:2rem`}>&lt;SectionCtaBlue variant="bg-2 | without-subheading | bg-2-without-subheading" /&gt;</p>
+      <SectionCtaBlue />
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

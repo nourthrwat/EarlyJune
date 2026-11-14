@@ -1,0 +1,152 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ButtonIcon from '@/components/ButtonIcon.astro'
+import Faq from '@/components/Faq.astro'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import {getCollection} from 'astro:content'
+const faqs = await getCollection('faqs')
+---
+
+<BaseLayout title="Verticals">
+  <div class="page-wrapper">
+    <Header variant="white-light" logoColor="white-light" logoMobile="white-light" />
+    <div class="main-wrapper">
+      <a href="/verticals/healthcare" class="w-inline-block section_hero-verticals is-healthcare">
+        <div class="container-large">
+          <div class="section_hero-verticals-grid">
+            <div class="padding-global">
+              <div class="padding-section-large">
+                <div class="section_hero-content">
+                  <div class="text-subheading text-color-ivory">
+                    Vertical
+                  </div>
+                  <div class="spacer-small"></div>
+                  <h1 class="h1-style-180px text-color-ivory">
+                    Healthcare
+                  </h1>
+                </div>
+              </div>
+            </div>
+            <div class="hide-tablet"></div>
+          </div>
+        </div>
+      </a>
+      <a href="/verticals/e-commerce" class="w-inline-block section_hero-verticals is-gradient">
+        <div class="container-large">
+          <div class="section_hero-verticals-grid">
+            <div class="padding-global">
+              <div class="padding-section-large">
+                <div class="section_hero-content">
+                  <div class="text-subheading text-color-coal">
+                    Vertical
+                  </div>
+                  <div class="spacer-small"></div>
+                  <h2 class="h1-style-180px text-color-coal">
+                    E-commerce
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="hide-tablet"></div>
+          </div>
+        </div>
+      </a>
+      <a href="/verticals/financial-services" class="w-inline-block section_hero-verticals is-bg2">
+        <div class="container-large">
+          <div class="section_hero-verticals-grid">
+            <div class="padding-global">
+              <div class="container-large">
+                <div class="padding-section-large">
+                  <div class="section_hero-content">
+                    <div class="text-subheading text-color-coal">
+                      Vertical
+                    </div>
+                    <div class="spacer-small"></div>
+                    <h2 class="h1-style-180px text-color-coal">
+                      Financial Services
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hide-tablet"></div>
+          </div>
+        </div>
+      </a>
+      <section class="section_qoute">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="section_qoute-grid">
+              <div class="section_qoute-col is-large">
+                <h2 class="section_qoute-h2">
+                  Defining Success
+                </h2>
+              </div>
+              <div class="section_qoute-col">
+                <p class="text-size-medium">
+                  Early June’s founder-led, hands-on approach to auditing your social channels will expose excess spend and content gaps. Clients can expect fast turnaround times on content strategies through the use of AI-powered tools that lower CAC while optimizing spend.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_faq">
+        <div class="padding-global">
+          <div class="padding-section-large">
+            <div class="container-small">
+              <div class="w-dyn-list"><!-- CMS LIST f23aaa6d-1ba3-b6aa-de71-91c59b5e788c -->
+                <div role="list" class="w-dyn-items">
+                  {faqs.map((item) => (
+                    <div role="listitem" class="w-dyn-item">
+                      <Faq question={item.data.question} answer={item.data.answer} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_casestudyv2">
+        <div class="padding-global">
+          <div class="padding-section-t3-44-b3-44">
+            <div class="container-large">
+              <div class="section_casestudyv2-wrapper">
+                <div class="section_casestudyv2-card">
+                  <div class="slider_slide-card-content">
+                    <div class="slider_slide-card-content-text">
+                      <div class="subheading-small">
+                        Case study
+                      </div>
+                      <h2 class="heading-style-h1-casestudy">
+                        Hey Jane
+                      </h2>
+                      <div class="body-text text-color-coal-dark">
+                        Helping a virtual clinic expand their reach to become the #1 online virtual reproductive and sexual healthcare service.
+                      </div>
+                    </div>
+                    <ButtonIcon />
+                  </div>
+                  <div class="section_casestudyv2-card-image-wrapper">
+                    <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db43_image%2095.avif" alt="" loading="lazy" class="section_casestudyv2-card-image is-desktop" />
+                    <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db44_4f69cf5ef20356991f9d0e866fb7c0f32e7428ea%20(1).avif" alt="" loading="lazy" class="section_casestudyv2-card-image is-mobile" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_nav">
+        <div class="padding-global">
+          <div class="container-large">
+            <div></div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <Footer />
+  </div>
+</BaseLayout>

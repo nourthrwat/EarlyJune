@@ -1,0 +1,89 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Button from '@/components/Button.astro'
+import CaseStudyCard from '@/components/CaseStudyCard.astro'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import SectionCta from '@/components/SectionCta.astro'
+import SectionDefine from '@/components/SectionDefine.astro'
+import {getCollection} from 'astro:content'
+import Faq from '@/components/Faq.astro'
+const faqs = await getCollection('faqs')
+const caseStudies = (await getCollection('caseStudies')).sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0))
+---
+
+<BaseLayout title="E-commerce">
+  <div class="page-wrapper">
+    <Header variant="base" logoColor="base" logoMobile="base" />
+    <div class="main-wrapper">
+      <section class="section_hero-v2 is-verticals--ecommerce">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="section_hero-v2-wrapper">
+              <div class="section_hero-content">
+                <div class="text-subheading text-color-coal">
+                  Vertical
+                </div>
+                <div class="spacer-small"></div>
+                <h1 class="h1-style-180px text-color-coal">
+                  E-commerce
+                </h1>
+              </div>
+              <div class="button-group-hero">
+                <Button variant="black-soild" href="/verticals/healthcare" text="Healthcare" />
+                <Button variant="black" text="E-commerce" />
+                <Button variant="black-soild" href="/verticals/financial-services" text="Financial Services" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <SectionDefine variant="gold-dark" />
+      <section class="section_faq is-gold--light">
+        <div class="padding-global">
+          <div class="section_faq-wrapper-content">
+            <div class="padding-section-large">
+              <div class="section_faq-wrapper-heading">
+                <div class="container-large">
+                  <div class="section_faq-title">
+                    What the audit should expose
+                  </div>
+                </div>
+              </div>
+              <div class="container-small">
+                <div class="w-dyn-list"><!-- CMS LIST 02da522e-0768-49d9-7496-e8cddd39a980 -->
+                  <div role="list" class="w-dyn-items">
+                    {faqs.map((item) => (
+                      <div role="listitem" class="w-dyn-item">
+                        <Faq question={item.data.question} answer={item.data.answer} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_casestudyv2">
+        <div class="padding-global">
+          <div class="padding-section-t3-44-b3-44">
+            <div class="container-large">
+              <div class="w-dyn-list"><!-- CMS LIST 771ef7ed-b1ba-8826-5cc4-6255d44c3d79 -->
+                <div role="list" class="w-dyn-items">
+                  {caseStudies.map((item) => (
+                    <div role="listitem" class="w-dyn-item">
+                      <CaseStudyCard variant="gold-light" title={item.data.title} description={item.data.description} image={item.data.sliderImage?.src} imageMobile={item.data.sliderImageMobile?.src} buttonHref={`/case-study/${item.id}`} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <SectionCta title="Learn how to get more reach with lower CaC." buttonHref="/audit" buttonText="Say hi" />
+    </div>
+    <Footer />
+  </div>
+</BaseLayout>

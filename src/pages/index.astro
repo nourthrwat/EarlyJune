@@ -1,9 +1,379 @@
 ---
-// Temporary check page — replaced by the real home page in the page rebuild step.
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Button from '@/components/Button.astro'
+import ButtonIcon from '@/components/ButtonIcon.astro'
+import Faq from '@/components/Faq.astro'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import SectionCtaBlue from '@/components/SectionCtaBlue.astro'
+import SectionQuote from '@/components/SectionQuote.astro'
+import * as embeds from '@/lib/embeds'
 import {getCollection} from 'astro:content'
-const posts = await getCollection('posts')
-const studies = await getCollection('caseStudies')
-const team = await getCollection('team')
+const logos = await getCollection('logos')
 ---
 
-<p>Content OK: {posts.length} posts, {studies.length} case studies, {team.length} team members.</p>
+<BaseLayout title="Early June">
+  <div class="page-wrapper">
+    <Header />
+    <div class="main-wrapper">
+      <section class="section_hero">
+        <div class="padding-global">
+          <div class="container-medium">
+            <div class="hero_content">
+              <div class="hero_content-heading">
+                <h1>
+                  Say goodbye to huge agencies + bulky marketing budgets
+                </h1>
+              </div>
+              <div class="button-wrapper">
+                <Button variant="soild" href="/audit" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_slogan">
+        <div class="padding-global">
+          <div class="container-medium">
+            <div class="slogan_content">
+              <div class="slogan_content-heading">
+                <h2 class="heading-style-h1 text-color-ivory">
+                  AI-powered growth marketing, 
+                  <br />
+                  With humanity
+                  <br />
+                  at its core.
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_roi">
+        <div class="padding-global padding-section-t4-b4">
+          <div class="container-medium">
+            <div class="roi_content">
+              <div class="roi_content-img-wrapper">
+                <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db00_main%20page%20-%20section%20ROI.webp" alt="" loading="lazy" class="roi_content-img" />
+              </div>
+              <div class="roi_content-text-wrapper">
+                <h2 class="heading-style-h1-large text-color-blue-deep">
+                  AI for more ROI
+                </h2>
+                <div class="roi_content-text">
+                  <p class="body-text text-color-blue-deep">
+                    Early June is your Boutique Agency for the age of AI. 
+                    <br />
+                    <br />
+                    Your Early June team consists of a nimble group of experts, each bringing decades of industry experience to your marketing strategy, working directly with you on to execute multiple conversion approaches, that can be deployed at a previously-unheard-of scale, through the selective use of AI tools.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_partners padding-section-t7-84-b7-84 exception">
+        <div class="padding-global">
+          <div class="container-medium infinite_line">
+            <div class="partners_content">
+              <div class="partners_content-text">
+                <h2 class="heading-style-h2 text-color-ivory">
+                  Early June is proudly HIPAA and Fair Lending Compliant
+                </h2>
+              </div>
+              <div class="partners_content-line">
+                <h1 class="subheading-regular text-color-ivory">
+                  Early June partners
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="logos_wrapper">
+          <div class="w-dyn-list logos-cms-wrap"><!-- CMS LIST bf4e3c13-137d-1afa-177a-854df61ea413 -->
+            <div role="list" class="w-dyn-items logo_wrapper_box">
+              {logos.map((item) => (
+                <div role="listitem" class="w-dyn-item">
+                  <img src={item.data.logo?.src} alt={item.data.logo?.alt || item.data.name} loading="lazy" class="partners_content-img" />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="w-dyn-list logos-cms-wrap"><!-- CMS LIST 9560a0f1-29e3-9479-db48-740451a6230c -->
+            <div role="list" class="w-dyn-items logo_wrapper_box">
+              {logos.map((item) => (
+                <div role="listitem" class="w-dyn-item">
+                  <img src={item.data.logo?.src} alt={item.data.logo?.alt || item.data.name} loading="lazy" class="partners_content-img" />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="w-embed"><Fragment set:html={embeds.loopKeyframes} /></div>
+        </div>
+      </section>
+      <section class="section_slider">
+        <div class="padding-global padding-section-t3-b2">
+          <div class="container-medium">
+            <div class="slider_wrapper">
+              <div class="hide">
+                <div class="w-slider slider">
+                  <div class="w-slider-mask slider_mask">
+                    <div class="w-slide slider_slide">
+                      <div class="slider_slide-card _1">
+                        <div class="slider_slide-card-content">
+                          <div class="slider_slide-card-content-text">
+                            <div class="subheading-small text-color-coal-dark">
+                              Case study
+                            </div>
+                            <h2 class="heading-style-h1-regular text-color-coal">
+                              Hey Jane
+                            </h2>
+                            <div class="body-text text-color-coal-dark">
+                              Helping a virtual clinic expand their reach to become the #1 online virtual reproductive and sexual healthcare service.
+                            </div>
+                          </div>
+                          <a href="#" class="w-inline-block button is-icon">
+                            <div class="button-text text-color-coal-dark">
+                              Learn more
+                            </div>
+                            <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db06_main%20page%20button%20arrow-icon.svg" alt="" loading="lazy" class="button_icon" />
+                          </a>
+                        </div>
+                        <div class="slider_slide-card-img">
+                          <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db07_main%20page%20slider%20img%201.webp" alt="" loading="lazy" class="slider_slide-card-img-img" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w-slide slider_slide">
+                      <div class="slider_slide-card _2">
+                        <div class="slider_slide-card-content">
+                          <div class="slider_slide-card-content-text">
+                            <div class="subheading-small">
+                              Case study
+                            </div>
+                            <h1 class="heading-style-h1-regular text-color-coal">
+                              Case
+                            </h1>
+                            <div class="body-text text-color-coal-dark">
+                              Helping a virtual clinic expand their reach to become the #1 online virtual reproductive and sexual healthcare service.
+                            </div>
+                          </div>
+                          <a href="#" class="w-inline-block button is-icon">
+                            <div class="button-text text-color-coal-dark">
+                              Learn more
+                            </div>
+                            <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db06_main%20page%20button%20arrow-icon.svg" alt="" loading="lazy" class="button_icon" />
+                          </a>
+                        </div>
+                        <div class="slider_slide-card-img">
+                          <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db15_main%20page%20slider%20img%202.webp" alt="" loading="lazy" class="slider_slide-card-img-img" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w-slide slider_slide">
+                      <div class="slider_slide-card _1">
+                        <div class="slider_slide-card-content">
+                          <div class="slider_slide-card-content-text">
+                            <div class="subheading-small text-color-coal-dark">
+                              Case study
+                            </div>
+                            <h1 class="heading-style-h1-regular text-color-coal">
+                              Hey Jane
+                            </h1>
+                            <div class="body-text text-color-coal-dark">
+                              Helping a virtual clinic expand their reach to become the #1 online virtual reproductive and sexual healthcare service.
+                            </div>
+                          </div>
+                          <a href="#" class="w-inline-block button is-icon">
+                            <div class="button-text text-color-coal-dark">
+                              Learn more
+                            </div>
+                            <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db06_main%20page%20button%20arrow-icon.svg" alt="" loading="lazy" class="button_icon" />
+                          </a>
+                        </div>
+                        <div class="slider_slide-card-img">
+                          <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db07_main%20page%20slider%20img%201.webp" alt="" loading="lazy" class="slider_slide-card-img-img" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="w-slider-arrow-left slider_arrow-left">
+                    <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db17_ArrowCircleRight.svg" alt="" loading="lazy" />
+                  </div>
+                  <div class="w-slider-arrow-right slider_arrow-right">
+                    <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db16_ArrowCircleRightright.svg" alt="" loading="lazy" />
+                  </div>
+                  <div class="w-slider-nav w-round slider_nav"></div>
+                </div>
+                <div class="w-embed"><Fragment set:html={embeds.sliderDots} /></div>
+              </div>
+              <div class="slider-component">
+                <div class="swiper">
+                  <div class="swiper-wrapper is-casestudy">
+                    <div class="swiper-slide" data-card-label="Card Number 1" data-card-color="#fa7f03">
+                      <div class="slider_slide-card">
+                        <div class="slider_slide-card-content">
+                          <div class="slider_slide-card-content-text">
+                            <div class="subheading-small">
+                              Case study
+                            </div>
+                            <h2 class="heading-style-h1-casestudy">
+                              Hey Jane
+                            </h2>
+                            <div class="body-text text-color-coal-dark">
+                              Helping a virtual clinic expand their reach to become the #1 online virtual reproductive and sexual healthcare service.
+                            </div>
+                          </div>
+                          <ButtonIcon href="/case-study/hey-jane" />
+                        </div>
+                        <div class="slider_slide-card-img">
+                          <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db07_main%20page%20slider%20img%201.webp" alt="" loading="lazy" class="slider_slide-card-img-img is-desktop" />
+                          <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db22_4f69cf5ef20356991f9d0e866fb7c0f32e7428ea.avif" alt="" loading="lazy" class="slider_slide-card-img-img is-mobile" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide" data-card-label="Card Number 1" data-card-color="#fa7f03">
+                      <div class="slider_slide-card _2">
+                        <div class="slider_slide-card-content">
+                          <div class="slider_slide-card-content-text">
+                            <div class="subheading-small">
+                              Case study
+                            </div>
+                            <h2 class="heading-style-h1-casestudy">
+                              Case
+                            </h2>
+                            <div class="body-text text-color-coal-dark">
+                              Helping a virtual clinic expand their reach to become the #1 online virtual reproductive and sexual healthcare service.
+                            </div>
+                          </div>
+                          <ButtonIcon />
+                        </div>
+                        <div class="slider_slide-card-img">
+                          <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db07_main%20page%20slider%20img%201.webp" alt="" loading="lazy" class="slider_slide-card-img-img is-desktop" />
+                          <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db23_case-image.avif" alt="" loading="lazy" class="slider_slide-card-img-img is-mobile" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mar-t-24">
+                  <div class="slider-main_button-wrapper">
+                    <a href="#" class="w-inline-block slider-main_button swiper-prev">
+                      <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db17_ArrowCircleRight.svg" alt="" loading="lazy" />
+                    </a>
+                    <a href="#" class="w-inline-block slider-main_button swiper-next">
+                      <img src="https://s3.amazonaws.com/webflow-prod-assets/6ab98d8daf6ccf6378b3dad6/6ab98d8daf6ccf6378b3db16_ArrowCircleRightright.svg" alt="" loading="lazy" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_channels">
+        <div class="padding-global">
+          <div class="padding-section-t4-b4">
+            <div class="container-medium">
+              <div class="channel_content">
+                <div class="channel_content-heading">
+                  <h2 class="heading-style-h2-96px">
+                    Core Channels: Paid Google and Paid social, TikTok and Meta.
+                  </h2>
+                </div>
+                <div class="channel_content-text">
+                  <p class="body-text">
+                    Turn annual CRO plans into actionable, quarterly objectives that can be measured, tracked and optimized.
+                    <br />
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="channels" id="core-channels">
+        <div class="w-embed hide"><Fragment set:html={embeds.channelsPanels} /></div>
+        <div class="split">
+          <div class="panel panel--google is-open" aria-expanded="true" tabindex="0">
+            <div class="panel__closed">
+              <div class="panel__label">
+                Paid Google
+              </div>
+              <div class="hide-desktop">
+                <div class="plus-icon">
+                  +
+                </div>
+              </div>
+            </div>
+            <div class="panel__open">
+              <h2 class="panel__name panel__name--ink">
+                Paid Google
+              </h2>
+              <div>
+                <Faq question="SEM" answer="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique." />
+                <Faq question="Display" answer="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, " />
+                <Faq question="Youtube" answer="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
+              </div>
+            </div>
+          </div>
+          <div class="panel panel--social" aria-expanded="false" tabindex="0">
+            <div class="panel__closed">
+              <div class="panel__label">
+                Paid Social
+              </div>
+              <div class="hide-desktop">
+                <div class="plus-icon">
+                  +
+                </div>
+              </div>
+            </div>
+            <div class="panel__open">
+              <h2 class="panel__name">
+                Paid Social
+              </h2>
+              <div>
+                <Faq question="SEM" answer="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique." />
+                <Faq question="Display" answer="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, " />
+                <Faq question="Youtube" answer="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
+              </div>
+            </div>
+          </div>
+          <div class="panel panel--creative" aria-expanded="false" tabindex="0">
+            <div class="panel__closed">
+              <div class="panel__label">
+                Creative
+              </div>
+              <div class="hide-desktop">
+                <div class="plus-icon">
+                  +
+                </div>
+              </div>
+            </div>
+            <div class="panel__open">
+              <h2 class="panel__name">
+                Creative
+              </h2>
+              <div>
+                <Faq variant="ivory" question="SEM" answer="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique." />
+                <Faq variant="ivory" question="Display" answer="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, " />
+                <Faq variant="ivory" question="Youtube" answer="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <SectionQuote />
+      <SectionCtaBlue title={"Your boutique agency, \nin the age of AI."} buttonHref="/audit" buttonText="Say hi" />
+      <section class="section_nav">
+        <div class="padding-global">
+          <div class="container-large">
+            <div></div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <Footer />
+  </div>
+</BaseLayout>

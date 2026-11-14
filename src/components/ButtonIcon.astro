@@ -1,0 +1,14 @@
+---
+// Webflow component "button Icon" — a pill button with the circled arrow.
+// Variants: base | blue-dark-icon | blue-dark-large | gold-dark | green
+import {arrowCircle} from '@/lib/embeds'
+interface Props { variant?: string; href?: string; text?: string }
+const {variant = 'base', href = '#', text = 'Learn more'} = Astro.props
+const green = variant === 'green'
+---
+<a href={href} class:list={['button is-icon w-inline-block', green ? 'green' : variant !== 'base' && `variant-${variant}`]}>
+  <div>{text}</div>
+  <div class:list={['button_icon-wrapper', green && 'green-2']}>
+    <div class:list={['icon-embed-small is-red w-embed', green && 'green-3']}><Fragment set:html={arrowCircle} /></div>
+  </div>
+</a>

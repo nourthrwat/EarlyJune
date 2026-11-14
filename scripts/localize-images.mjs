@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Downloads every image still served from Webflow's CDN into public/images/cms/
+ * Downloads every image and font still served from Webflow's CDN into public/images/cms/
  * and rewrites the references in src/ to the local copies.
  *
  * Run once on your machine before Webflow is cancelled (Webflow's CDN goes away with the site):
@@ -14,7 +14,7 @@ import path from 'node:path'
 const ROOT = process.cwd()
 const SCAN_DIRS = ['src']
 const OUT_DIR = path.join(ROOT, 'public/images/cms')
-const CDN = /https:\/\/(?:cdn\.prod\.website-files\.com|uploads-ssl\.webflow\.com|assets\.website-files\.com)\/[^\s"')<>]+/g
+const CDN = /https:\/\/(?:cdn\.prod\.website-files\.com|uploads-ssl\.webflow\.com|assets\.website-files\.com|s3\.amazonaws\.com\/webflow-prod-assets)\/[^\s"')<>]+/g
 
 const files = []
 const walk = (dir) => {
@@ -35,11 +35,17 @@ if (urls.size === 0) {
 }
 
 fs.mkdirSync(OUT_DIR, {recursive: true})
+const used = new Map()
 const localPath = (url) => {
-  const name = decodeURIComponent(new URL(url).pathname.split('/').pop())
+  const file = decodeURIComponent(new URL(url).pathname.split('/').pop())
+  const id = file.match(/^([0-9a-f]{24})_/)?.[1] ?? ''
+  let name = file
     .replace(/^[0-9a-f]{24}_/, '') // drop Webflow's asset id prefix
     .replace(/[^a-zA-Z0-9._-]+/g, '-')
     .toLowerCase()
+  // two different assets with the same file name → keep the end of the asset id
+  if (used.has(name) && used.get(name) !== url) name = `${id.slice(-6)}-${name}`
+  used.set(name, url)
   return `/images/cms/${name}`
 }
 

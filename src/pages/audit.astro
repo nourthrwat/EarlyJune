@@ -1,0 +1,94 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import * as embeds from '@/lib/embeds'
+---
+
+<BaseLayout title="Audit">
+  <div class="page-wrapper">
+    <Header variant="base" logoColor="base" logoMobile="base" />
+    <div class="main-wrapper">
+      <section class="section_hero-audit">
+        <div class="padding-global">
+          <div>
+            <div class="container-medium">
+              <div class="section_hero-audit-h1-wrapper">
+                <div class="text-subheading">
+                  Contact us
+                </div>
+                <h1 class="h1-style-112px">
+                  Same CAC, 
+                  <br />
+                  more customers.
+                </h1>
+                <div class="max-width-medium">
+                  <div class="body-text">
+                    Early June AI-powered deployments can attract, convert and retain your customers up to 2.6x faster than the industry average.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_contactus">
+        <div class="padding-global">
+          <div class="padding-section-large">
+            <div class="container-large">
+              <div class="section_contactus-grid">
+                <div class="section_contactus-grid-col is-left">
+                  <h2 class="text-size-112px">
+                    Request an audit
+                  </h2>
+                </div>
+                <div class="section_contactus-grid-col">
+                  <div class="w-form">
+                    <form name="Audit Form" data-name="Audit Form" method="post" data-netlify="true" netlify-honeypot="bot-field" class="form" id="wf-form-Audit-Form">
+                      <input type="hidden" name="form-name" value="Audit Form" />
+                      <p class="form-honeypot"><label>Leave this empty <input name="bot-field" /></label></p>
+                      <div class="inputs_wrap">
+                        <div class="inputs_wrapper">
+                          <input class="w-input text-field" type="text" name="First name" data-name="First name" placeholder="First name" required id="First-name" />
+                          <input class="w-input text-field" type="text" name="Last name" data-name="Last name" placeholder="Last name" id="Last-name" />
+                        </div>
+                        <input class="w-input text-field" type="email" name="Work email" data-name="Work email" placeholder="Work email" required id="Work-email" />
+                        <textarea class="w-input text-field is-text--area" name="Message" data-name="Message" placeholder="Message" id="Text-Area"></textarea>
+                      </div>
+                      <div class="form-submit-btn-wrapper">
+                        <input type="submit" class="w-button submit-button" value="Submit" />
+                        <div class="w-embed code-embed"><Fragment set:html={embeds.sayHiPill} /></div>
+                      </div>
+                    </form>
+                    <div class="w-form-done success-message" tabindex="-1" role="region">
+                      <div>
+                        Thank you! Your submission has been received!
+                      </div>
+                    </div>
+                    <div class="w-form-fail" tabindex="-1" role="region">
+                      <div>
+                        Oops! Something went wrong while submitting the form.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_ctagradainet">
+        <div class="padding-global">
+          <div class="container-medium">
+            <div class="section_ctaorange-wrapper">
+              <h2 class="section_ctagradainet-title">
+                The best growth marketing is results-driven marketing.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <Footer />
+  </div>
+</BaseLayout>

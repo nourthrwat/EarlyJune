@@ -1,0 +1,24 @@
+---
+// Webflow component "section FAQ": FAQs from src/data/faqs.yaml, optionally filtered by tag.
+import {getCollection} from 'astro:content'
+import Faq from './Faq.astro'
+interface Props { tag?: string; variant?: string }
+const {tag, variant} = Astro.props
+const faqs = (await getCollection('faqs')).filter((f) => !tag || f.data.tags.some((t) => t.id === tag))
+---
+<section class="section_faq">
+  <div class="padding-global">
+    <div class="padding-section-large">
+      <div class="container-small">
+        <div role="list" class="w-dyn-items">
+          {faqs.map((f) => (
+            <div role="listitem" class="w-dyn-item">
+              <Faq variant={variant} question={f.data.question} answer={f.data.answer} />
+            </div>
+          ))}
+        </div>
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>

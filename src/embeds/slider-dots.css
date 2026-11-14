@@ -1,0 +1,19 @@
+.w-slider-dot {
+  background-color: #D9D7CC !important;
+  width: 9px !important;
+  height: 9px !important;
+  margin: 0 6px !important;
+}
+.w-slider-dot.w-active {
+  background-color: #1E1E1E !important;
+}
+.slider_arrow-left[style*="display: none"],
+.slider_arrow-right[style*="display: none"] {
+  display: flex !important;
+  color: #CBC8B1 !important;
+  pointer-events: none !important;
+}
+.slider_arrow-left svg,
+.slider_arrow-right svg {
+  color: inherit;
+}

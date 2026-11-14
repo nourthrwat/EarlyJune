@@ -1,0 +1,32 @@
+---
+// Webflow component "Section CTA (Blue)".
+// Variants: base | bg-2 | without-subheading | bg-2-without-subheading
+import ButtonIcon from './ButtonIcon.astro'
+interface Props {
+  variant?: string; title?: string; text?: string
+  buttonVariant?: string; buttonHref?: string; buttonText?: string
+}
+const {
+  variant = 'base',
+  title = 'Your boutique agency, in the age of AI.',
+  text = 'Learn more about Early June experienced teams and AI-powered services, and how to set up an audit of your current ad accounts.',
+  buttonVariant = 'blue-dark-large', buttonHref = '/audit', buttonText = 'Request an audit',
+} = Astro.props
+---
+<section class:list={['section_cta', variant !== 'base' && `variant-${variant}`]}>
+  <div class="padding-global padding-section-t7-84-b7-84">
+    <div class="container-medium">
+      <div class="cta_content-wrapper">
+        <div class="cta_content-heading">
+          <h2 class="section_cta-title" set:html={title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\n/g, '<br />')} />
+        </div>
+        <div class="cta_content-text">
+          <p class="body-text text-color-coal-dark">{text}</p>
+        </div>
+        <div class="button-group">
+          <ButtonIcon variant={buttonVariant} href={buttonHref} text={buttonText} />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

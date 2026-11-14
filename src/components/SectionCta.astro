@@ -1,0 +1,22 @@
+---
+// Webflow component "Section CTA"
+import ButtonIcon from './ButtonIcon.astro'
+interface Props { title?: string; buttonVariant?: string; buttonHref?: string; buttonText?: string }
+const {title = 'Ready to get started?', buttonVariant = 'base', buttonHref = '/audit', buttonText = 'Request an audit'} = Astro.props
+---
+<section class="section_cta is-v2">
+  <div class="padding-global">
+    <div class="padding-section-large">
+      <div class="container-medium">
+        <div class="cta_content-wrapper">
+          <div class="cta_content-heading">
+            <h2 class="section_cta-title">{title}</h2>
+          </div>
+          <div>
+            <ButtonIcon variant={buttonVariant} href={buttonHref} text={buttonText} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

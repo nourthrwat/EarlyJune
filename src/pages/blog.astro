@@ -1,0 +1,154 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ButtonIcon from '@/components/ButtonIcon.astro'
+import Footer from '@/components/Footer.astro'
+import Header from '@/components/Header.astro'
+import * as embeds from '@/lib/embeds'
+import {getCollection} from 'astro:content'
+const categories = await getCollection('blogCategories')
+const posts = (await getCollection('posts', (p) => !p.data.hidden)).sort((a, b) => +b.data.publishedAt - +a.data.publishedAt)
+const featured = posts.filter((p) => p.data.featured).slice(0, 1)
+---
+
+<BaseLayout title="Blog">
+  <div class="page-wrapper">
+    <Header variant="base" logoColor="base" logoMobile="base" />
+    <div class="main-wrapper">
+      <section class="section_hero-blog">
+        <div class="container-medium padding-global">
+          <div class="section_hero-verticals-grid">
+            <div class="section_hero-blog-h1-wrapper">
+              <div class="text-subheading">
+                BLOG
+              </div>
+              <h1 class="h1-style-112px">
+                Taking a deeper look at efficiency and growth
+              </h1>
+              <div class="max-width-large">
+                <div class="body-text">
+                  Early Juners discuss client journeys and key learnings they’ve made as they help brands enter into all new levels of sustained growth and reach.
+                </div>
+              </div>
+            </div>
+            <div class="hide-tablet"></div>
+          </div>
+        </div>
+      </section>
+      <section class="section_blogstags">
+        <div class="padding-global">
+          <div class="section_blogstags-wrapper">
+            <a href="/blog" class="section_blogstags-link">
+              All
+            </a>
+            <div class="w-dyn-list"><!-- CMS LIST 211cd1af-9ce5-db4f-f794-32af41520420 -->
+              <div role="list" class="w-dyn-items section_blogstags-wrapper">
+                {categories.map((item) => (
+                  <div role="listitem" class="w-dyn-item">
+                    <a href={`/blog-categories/${item.id}`} class="section_blogstags-link">{item.data.name}</a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_featured">
+        <div class="padding-global">
+          <div class="section_featured-wrapper">
+            <div class="w-dyn-list"><!-- CMS LIST fd0b2317-be57-36ef-2466-c5e2d3c5b26c -->
+              <div role="list" class="w-dyn-items">
+                {featured.map((item) => (
+                  <div role="listitem" class="w-dyn-item">
+                    <div class="section_featured-card-l">
+                      <div class="section_featured-card-wrapper">
+                        <img src={item.data.mainImage?.src} alt={item.data.mainImage?.alt ?? ''} loading="lazy" class="section_featured-card-image" />
+                        <div class="section_featured-card-image-overlay"></div>
+                      </div>
+                      <div class="section_featured-card-l-content">
+                        <div class="text-subheading">featured</div>
+                        <div class="spacer-small"></div>
+                        <h2 class="section_featured-card-title">{item.data.title}</h2>
+                        <div class="spacer-medium"></div>
+                        <div class="section_featured-card-button-wrapper">
+                          <ButtonIcon variant="green" href={`/post/${item.id}`} text="Learn more" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div class="show-mobilelandingscape">
+            <div class="container-large">
+              <div class="w-dyn-list"><!-- CMS LIST edca68d4-72b7-f26b-e3a9-b0b363089a40 -->
+                <div role="list" class="w-dyn-items">
+                  {featured.map((item) => (
+                    <div role="listitem" class="w-dyn-item">
+                      <div class="section_featured-card-s">
+                        <div class="section_featured-card-s-image-wrapper">
+                          <img src={(item.data.thumbnailImage ?? item.data.mainImage)?.src} alt="" loading="lazy" class="section_featured-card-s-image" />
+                        </div>
+                        <div class="section_featured-card-s-content">
+                          <div class="text-subheading">featured</div>
+                          <h2 class="section_featured-card-s-h2">{item.data.title}</h2>
+                          <p class="text-color-gray">{item.data.summary}</p>
+                          <ButtonIcon variant="green" href={`/post/${item.id}`} text="Read article" />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_articles">
+        <div class="padding-global">
+          <div class="container-large">
+            <div>
+              <p class="text-weight-medium text-style-allcaps">
+                latest articles
+              </p>
+            </div>
+          </div>
+          <div class="w-dyn-list section_articles-wrapper"><!-- CMS LIST 19cefbfa-f7a3-2e8a-cac2-0dab1f122719 -->
+            <div role="list" class="w-dyn-items">
+              {posts.map((item) => (
+                <div role="listitem" class="w-dyn-item">
+                  <a href={`/post/${item.id}`} class="section_articles-link w-inline-block">
+                    <div class="section_articles-link-wrapper">
+                      <div>{item.data.title}</div>
+                    </div>
+                    <div class="section_articles-link-arrow">
+                      <div class="icon-embed-xsmall w-embed"><Fragment set:html={embeds.arrowSmall} /></div>
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_cta-orange-v2">
+        <div class="padding-global">
+          <div class="section_cta-orange-v2-wrapper">
+            <h2 class="section_cta-orange-v2-title">
+              Turn this thinking into your next test
+            </h2>
+            <div class="spacer-medium"></div>
+            <div class="text-size-medium">
+              Bring us the challenge. We will help you frame the next move.
+            </div>
+            <div class="spacer-medium"></div>
+            <div>
+              <ButtonIcon variant="gold-dark" href="/audit" text="Say hi" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <Footer />
+  </div>
+</BaseLayout>

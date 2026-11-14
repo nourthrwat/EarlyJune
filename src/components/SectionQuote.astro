@@ -1,0 +1,29 @@
+---
+import {asset} from '@/lib/assets'
+// Webflow component "section Quote"
+interface Props { quote?: string; photo?: string; name?: string; title?: string }
+const {
+  quote = '“The Early June team has played a pivotal role in our journey towards international expansion, demonstrating exceptional hands-on involvement and a remarkable capacity for both strategic planning and swift execution."',
+  photo = asset('6ab98d8daf6ccf6378b3db24'),
+  name = 'Emily Boschwitz',
+  title = 'Hey Jane',
+} = Astro.props
+---
+<section class="section_quote">
+  <div class="padding-global">
+    <div class="container-medium">
+      <div class="quote_content-wrapper">
+        <div class="quote_content-text">
+          <p class="section_quote-heading">{quote}</p>
+        </div>
+        <div class="quote_content-image">
+          <img src={photo} alt={name} loading="lazy" class="quote_content-image-img" />
+          <div class="quote_content-image-text">
+            <div class="subheading-qoute">{name}</div>
+            <div class="body-text">{title}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
