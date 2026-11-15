@@ -93,7 +93,7 @@ jobs:
           git add -A
           git commit -q -m "$TITLE" -m "$SUMMARY" -m "Requested in Slack by $SLACK_USER"
           git push -q -u origin "$BRANCH"
-          printf '%s\n\n**Request (Slack):**\n> %s\n\n[Workflow run](%s)\n' "$SUMMARY" "$(printf '%s' "$REQUEST" | sed 's/^/> /')" "$RUN_URL" > /tmp/pr-body.md
+          printf '%s\n\n**Request (Slack):**\n%s\n\n[Workflow run](%s)\n' "$SUMMARY" "$(printf '%s' "$REQUEST" | sed 's/^/> /')" "$RUN_URL" > /tmp/pr-body.md
           PR="$(gh pr list --head "$BRANCH" --state open --json number -q '.[0].number')"
           if [ -z "$PR" ]; then
             gh pr create --base main --head "$BRANCH" --title "$TITLE" --body-file /tmp/pr-body.md >/dev/null
