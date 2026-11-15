@@ -6,7 +6,8 @@
   ],
   "exclude": [
     "dist",
-    "migration"
+    "migration",
+    "slack-bridge"
   ],
   "compilerOptions": {
     "baseUrl": ".",

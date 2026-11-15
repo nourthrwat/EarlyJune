@@ -1,0 +1,114 @@
+# Runs when the client asks for a change in Slack.
+# Flow: Slack → slack-bridge (Cloudflare Worker) → this workflow → Claude edits the site
+#       → pull request → Netlify deploy preview → "Approve & publish" button in Slack → merged → live.
+name: Slack request
+
+on:
+  repository_dispatch:
+    types: [slack-request]
+
+# One run at a time per Slack thread; follow-up messages in the same thread update the same PR.
+concurrency:
+  group: slack-${{ github.event.client_payload.thread_ts }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  change:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      BRANCH: slack/${{ github.event.client_payload.thread_ts }}
+      REQUEST: ${{ github.event.client_payload.text }}
+      SLACK_USER: ${{ github.event.client_payload.user }}
+      SLACK_CHANNEL: ${{ github.event.client_payload.channel }}
+      SLACK_THREAD: ${{ github.event.client_payload.thread_ts }}
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      NETLIFY_SITE_NAME: ${{ vars.NETLIFY_SITE_NAME }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Use the branch for this Slack thread
+        run: |
+          if git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null; then
+            git fetch origin "$BRANCH" && git checkout "$BRANCH"
+          else
+            git checkout -b "$BRANCH"
+          fi
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Claude makes the change
+        uses: anthropics/claude-code-action@v1
+        with:
+          # Use ONE of these two (see docs/slack-agent-setup.md):
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            You are the website agent for the Early June marketing site. The client sent this request in Slack:
+
+            <request>
+            ${{ github.event.client_payload.text }}
+            </request>
+
+            Rules:
+            1. Read CLAUDE.md first and follow it exactly (content files only, existing classes and components, URLs never change).
+            2. Make the change in the repository files. Do NOT commit, push or open a pull request; the workflow does that.
+            3. Run `npm run check` and `npm run build`. Both must pass; fix anything you broke.
+            4. Write /tmp/summary.md: 1-3 short sentences for a non-technical client saying what changed and on which page.
+            5. Write /tmp/page.txt: the URL path of the page to preview, e.g. /about-us (just the path, one line).
+            6. If the request is a question, is unclear, or would break the rules, change NO files and write your answer
+               or one clarifying question to /tmp/summary.md instead.
+          claude_args: >-
+            --max-turns 40
+            --allowedTools "Read,Edit,Write,Glob,Grep,Bash(npm run check),Bash(npm run build),Bash(git status),Bash(git diff:*)"
+
+      - name: Open or update the pull request
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf dist
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          SUMMARY="$(cat /tmp/summary.md 2>/dev/null || echo 'Website update requested in Slack.')"
+          TITLE="Slack: $(printf '%s' "$REQUEST" | tr '\n' ' ' | cut -c1-70)"
+          git config user.name "Early June bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "$TITLE" -m "$SUMMARY" -m "Requested in Slack by $SLACK_USER"
+          git push -q -u origin "$BRANCH"
+          printf '%s\n\n**Request (Slack):**\n> %s\n\n[Workflow run](%s)\n' "$SUMMARY" "$(printf '%s' "$REQUEST" | sed 's/^/> /')" "$RUN_URL" > /tmp/pr-body.md
+          PR="$(gh pr list --head "$BRANCH" --state open --json number -q '.[0].number')"
+          if [ -z "$PR" ]; then
+            gh pr create --base main --head "$BRANCH" --title "$TITLE" --body-file /tmp/pr-body.md >/dev/null
+            PR="$(gh pr list --head "$BRANCH" --state open --json number -q '.[0].number')"
+          else
+            gh pr comment "$PR" --body-file /tmp/pr-body.md >/dev/null
+          fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "number=$PR" >> "$GITHUB_OUTPUT"
+
+      - name: Reply in Slack
+        if: always()
+        env:
+          STATUS: ${{ job.status }}
+          CHANGED: ${{ steps.pr.outputs.changed }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          REPO_URL: ${{ github.server_url }}/${{ github.repository }}
+        run: node .github/scripts/slack-reply.mjs

@@ -1,0 +1,8 @@
+name = "early-june-slack-bridge"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+
+[vars]
+GITHUB_REPO = "nourthrwat/EarlyJune"
+# Slack user IDs allowed to press "Approve & publish" (comma-separated). Empty = anyone in the channel.
+APPROVER_IDS = ""

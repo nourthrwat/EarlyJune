@@ -37,4 +37,12 @@ The Webflow site is on the free plan (no code export), so everything was read wi
 connector: element trees per page (`migration/pages/`), styles, variables, component variants,
 embeds and custom code.
 
+## Changing the site from Slack
+
+The client mentions the bot in Slack → Claude makes the change in a pull request → Netlify builds a
+preview → the client presses **Approve & publish** in Slack. Setup: [docs/slack-agent-setup.md](docs/slack-agent-setup.md).
+
+- `.github/workflows/slack-request.yml` — runs Claude on each Slack request and opens/updates the PR
+- `slack-bridge/` — Cloudflare Worker between Slack and GitHub (requests + approve button)
+
 See [CLAUDE.md](CLAUDE.md) for the rules every change must follow.
