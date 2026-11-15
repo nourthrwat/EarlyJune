@@ -13,7 +13,7 @@ interface Props {
   smoothScroll?: boolean
   noindex?: boolean
 }
-const {title = 'Early June', description, image, smoothScroll = false, noindex = false} = Astro.props
+const {title = 'Early June', description, image, smoothScroll = true, noindex = false} = Astro.props
 const canonical = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/', Astro.site)
 ---
 <!doctype html>
