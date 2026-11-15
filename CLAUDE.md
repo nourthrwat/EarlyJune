@@ -60,6 +60,7 @@ loosen the schema to make an error go away.
    in the same change.
 2. **Content requests change content files only.** "Change the headline", "add a blog post",
    "swap the team photo" → edit the Markdown/YAML (or the copy in the page file). No CSS, no new components.
+   (Exception: a new page or section from a Figma link — see below.)
 3. **Use the existing design system.** Reuse existing classes and components; check `/styleguide`
    first. No new colors, font sizes or spacing values — use the CSS variables that already exist.
    To build a new section, copy a similar section from another page and change the copy.
@@ -67,6 +68,30 @@ loosen the schema to make an error go away.
 5. **Images** go in `public/images/` and are referenced as `/images/...`. Always fill `alt`.
 6. **One `<h1>` per page.**
 7. **Small, focused changes.** One request = one pull request. Don't refactor unrelated code.
+
+## New pages and sections from Figma
+
+When a request includes a figma.com link:
+
+1. Read the design with the Figma tool `get_figma_data`. Pass the file key and the `node-id` from the link
+   (`?node-id=12-34` → `12:34`), so you only fetch the frame that was linked. Each call counts against
+   Figma's API limit, so fetch once and work from the result.
+2. Download the images the design uses with `download_figma_images` into `public/images/<page-slug>/`
+   (PNG for photos, SVG for icons and logos). Reference them as `/images/<page-slug>/<file>` with a real `alt`.
+3. Build the page as `src/pages/<page-slug>.astro` with `BaseLayout`, `Header`, `Footer` and the page structure
+   every other page uses: `page-wrapper > main-wrapper > section_* > padding-global > container-* > …`.
+   Copy a similar existing page as the starting point.
+4. Map the design to what exists **before** writing anything new:
+   - text styles → existing heading/text classes (see `/styleguide`)
+   - colors → the `--colors--*` variables (pick the closest one; never hard-code a new hex)
+   - buttons, CTAs, FAQs, quotes, case-study cards → the components in `src/components/`
+   - spacing → `padding-section-*`, `spacer-*`, `container-*`
+5. Only if the layout truly can't be built from existing classes: add new classes for that page at the end of
+   `src/styles/site.css`, under a comment `/* <page-slug> page (from Figma) */`, named `section_<name>-…`,
+   using the existing CSS variables and rem units. Make it work at 991px, 767px and 479px.
+6. URLs: new pages only — never rename or move existing ones. Add the page to the header or footer only if asked.
+7. In /tmp/summary.md, list anything that could not match the design exactly (fonts that don't exist on the
+   site, effects, missing images), so the client can decide in the preview.
 
 ## Commands
 

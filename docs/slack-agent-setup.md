@@ -102,6 +102,20 @@ In the channel: `@website change the About page headline to "Fewer layers. More 
 3. The bot posts the summary with **Open preview** and **Approve & publish**.
 4. Approve → the PR is merged → Netlify publishes in about a minute.
 
+## 8. Optional: build pages from Figma links
+
+The client can paste a Figma link: `@website build this page as /pricing https://www.figma.com/design/…?node-id=12-34`
+
+1. figma.com → your avatar → **Settings → Security → Personal access tokens → Generate new token**,
+   scope **File content: Read-only**. The token's owner must be able to open the client's Figma file.
+2. GitHub → Settings → Secrets and variables → Actions → secret `FIGMA_API_KEY`.
+
+Figma API limits (developers.figma.com/docs/rest-api/rate-limits): with a **Dev or Full seat on a paid plan**
+the limit is per minute — fine. With a **View/Collab seat or a free Starter account** it is about
+**20 requests per month**, which is only a few page builds. Each page build uses ~2–4 requests.
+
+Expect a strong first draft, not a pixel-perfect page: check the preview and ask for fixes in the same thread.
+
 ## Limits (on purpose)
 
 - Claude can only read/edit files and run `npm run check` / `npm run build` (see `--allowedTools` in the workflow).

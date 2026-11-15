@@ -20,7 +20,7 @@ permissions:
 jobs:
   change:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     env:
       BRANCH: slack/${{ github.event.client_payload.thread_ts }}
       REQUEST: ${{ github.event.client_payload.text }}
@@ -50,6 +50,15 @@ jobs:
 
       - run: npm ci
 
+      # Figma access (optional): lets Claude read a design from a Figma link in the request.
+      - name: Configure Figma tools
+        env:
+          FIGMA_API_KEY: ${{ secrets.FIGMA_API_KEY }}
+        run: |
+          jq -n --arg key "$FIGMA_API_KEY" \
+            '{mcpServers: {figma: {command: "npx", args: ["-y", "figma-developer-mcp@0.13.2", "--stdio"], env: {FIGMA_API_KEY: $key}}}}' \
+            > "$RUNNER_TEMP/mcp.json"
+
       - name: Claude makes the change
         uses: anthropics/claude-code-action@v1
         with:
@@ -72,9 +81,12 @@ jobs:
             5. Write /tmp/page.txt: the URL path of the page to preview, e.g. /about-us (just the path, one line).
             6. If the request is a question, is unclear, or would break the rules, change NO files and write your answer
                or one clarifying question to /tmp/summary.md instead.
+            7. If the request contains a figma.com link, follow "New pages and sections from Figma" in CLAUDE.md.
+               If the Figma tools fail (no access, rate limit), change nothing and explain that in /tmp/summary.md.
           claude_args: >-
-            --max-turns 40
-            --allowedTools "Read,Edit,Write,Glob,Grep,Bash(npm run check),Bash(npm run build),Bash(git status),Bash(git diff:*)"
+            --max-turns 80
+            --mcp-config ${{ runner.temp }}/mcp.json
+            --allowedTools "Read,Edit,Write,Glob,Grep,Bash(npm run check),Bash(npm run build),Bash(git status),Bash(git diff:*),mcp__figma__get_figma_data,mcp__figma__download_figma_images"
 
       - name: Open or update the pull request
         id: pr

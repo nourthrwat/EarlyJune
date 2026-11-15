@@ -39,7 +39,13 @@ async function handleEvent(request: Request, body: string, env: Env, ctx: Execut
   const event = payload.event
   if (payload.type !== 'event_callback' || event?.type !== 'app_mention' || event.bot_id) return new Response('ok')
 
-  const text = String(event.text ?? '').replace(/<@[A-Z0-9]+>/g, '').trim()
+  const text = String(event.text ?? '')
+    .replace(/<@[A-Z0-9]+>/g, '') // the bot mention
+    .replace(/<(https?:\/\/[^|>]+)(?:\|[^>]*)?>/g, '$1') // Slack link markup <url|label> → url
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .trim()
   const threadTs = event.thread_ts ?? event.ts
 
   ctx.waitUntil(
