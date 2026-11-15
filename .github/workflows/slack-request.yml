@@ -53,8 +53,8 @@ jobs:
       - name: Claude makes the change
         uses: anthropics/claude-code-action@v1
         with:
-          # Use ONE of these two (see docs/slack-agent-setup.md):
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Uses your Claude subscription (claude setup-token).
+          # To pay per use instead, replace this line with: anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: |
