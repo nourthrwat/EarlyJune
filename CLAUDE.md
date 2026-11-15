@@ -69,6 +69,17 @@ loosen the schema to make an error go away.
 6. **One `<h1>` per page.**
 7. **Small, focused changes.** One request = one pull request. Don't refactor unrelated code.
 
+## Images sent in Slack
+
+Images attached to a Slack request are downloaded to `public/images/uploads/` before you start (the list is in
+the prompt). Use them like this:
+
+1. Find where the image goes: the content file (YAML/Markdown field such as `photo`, `logo`, `mainImage`) or the
+   `<img src>` in the page file. Replace the URL with `/images/uploads/<file>`.
+2. Write a real `alt` text describing the new image (people's names for team photos, company names for logos).
+3. If the request is ambiguous (e.g. several images on the page could be meant), change nothing and ask which one.
+4. Images that end up unused should be deleted from `public/images/uploads/`, so the commit only contains what is used.
+
 ## New pages and sections from Figma
 
 When a request includes a figma.com link:

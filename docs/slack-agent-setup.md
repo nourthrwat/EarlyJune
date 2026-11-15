@@ -102,7 +102,15 @@ In the channel: `@website change the About page headline to "Fewer layers. More 
 3. The bot posts the summary with **Open preview** and **Approve & publish**.
 4. Approve → the PR is merged → Netlify publishes in about a minute.
 
-## 8. Optional: build pages from Figma links
+## 8. Images sent in Slack
+
+The client can attach an image to the message: `@website replace Jan's team photo with this one` + image.
+The workflow downloads it into `public/images/uploads/` and Claude puts it in the right place.
+
+Needs the Slack scope **files:read**: Slack app → **OAuth & Permissions → Bot Token Scopes → Add `files:read`**
+→ **Reinstall to Workspace**. If the bot token changes, update it in GitHub and in the Worker.
+
+## 9. Optional: build pages from Figma links
 
 The client can paste a Figma link: `@website build this page as /pricing https://www.figma.com/design/…?node-id=12-34`
 
@@ -120,4 +128,3 @@ Expect a strong first draft, not a pixel-perfect page: check the preview and ask
 
 - Claude can only read/edit files and run `npm run check` / `npm run build` (see `--allowedTools` in the workflow).
 - It cannot push to `main`. Every change waits for the approve button.
-- Images sent in Slack are not picked up yet; upload them to `public/images/` and mention the file name.

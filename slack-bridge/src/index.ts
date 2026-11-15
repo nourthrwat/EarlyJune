@@ -47,16 +47,21 @@ async function handleEvent(request: Request, body: string, env: Env, ctx: Execut
     .replace(/&gt;/g, '>')
     .trim()
   const threadTs = event.thread_ts ?? event.ts
+  // Images attached to the message (needs the files:read scope). The workflow downloads them.
+  const files = ((event.files ?? []) as any[])
+    .filter((f) => String(f.mimetype ?? '').startsWith('image/') && f.url_private_download)
+    .slice(0, 10)
+    .map((f) => ({name: String(f.name ?? 'image'), url: String(f.url_private_download)}))
 
   ctx.waitUntil(
     (async () => {
-      if (!text) {
+      if (!text && !files.length) {
         await slackPost(env, event.channel, threadTs, 'Hi! Tell me what to change on the website, for example: “Change the home page headline to …”.')
         return
       }
       const res = await github(env, `/repos/${env.GITHUB_REPO}/dispatches`, 'POST', {
         event_type: 'slack-request',
-        client_payload: {text, user: event.user, channel: event.channel, thread_ts: threadTs},
+        client_payload: {text, files, user: event.user, channel: event.channel, thread_ts: threadTs},
       })
       await slackPost(
         env,

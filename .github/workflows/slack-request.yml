@@ -50,6 +50,12 @@ jobs:
 
       - run: npm ci
 
+      - name: Download images attached in Slack
+        id: files
+        env:
+          FILES: ${{ toJson(github.event.client_payload.files) }}
+        run: node .github/scripts/slack-files.mjs
+
       # Figma access (optional): lets Claude read a design from a Figma link in the request.
       - name: Configure Figma tools
         env:
@@ -73,6 +79,9 @@ jobs:
             ${{ github.event.client_payload.text }}
             </request>
 
+            Images the client attached in Slack (already saved in the repo):
+            ${{ steps.files.outputs.list || 'none' }}
+
             Rules:
             1. Read CLAUDE.md first and follow it exactly (content files only, existing classes and components, URLs never change).
             2. Make the change in the repository files. Do NOT commit, push or open a pull request; the workflow does that.
@@ -81,7 +90,8 @@ jobs:
             5. Write /tmp/page.txt: the URL path of the page to preview, e.g. /about-us (just the path, one line).
             6. If the request is a question, is unclear, or would break the rules, change NO files and write your answer
                or one clarifying question to /tmp/summary.md instead.
-            7. If the request contains a figma.com link, follow "New pages and sections from Figma" in CLAUDE.md.
+            7. If images are attached, follow "Images sent in Slack" in CLAUDE.md.
+            8. If the request contains a figma.com link, follow "New pages and sections from Figma" in CLAUDE.md.
                If the Figma tools fail (no access, rate limit), change nothing and explain that in /tmp/summary.md.
           claude_args: >-
             --max-turns 80
